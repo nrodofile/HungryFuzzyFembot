@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A65C04A17BDE5ED0064BAE8 /* TitleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A65C04917BDE5ED0064BAE8 /* TitleVC.m */; };
 		6AD91DFE17BA49EC007A0DF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD91DFD17BA49EC007A0DF5 /* UIKit.framework */; };
 		6AD91E0017BA49EC007A0DF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD91DFF17BA49EC007A0DF5 /* Foundation.framework */; };
 		6AD91E0217BA49EC007A0DF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD91E0117BA49EC007A0DF5 /* CoreGraphics.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A65C04817BDE5ED0064BAE8 /* TitleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleVC.h; sourceTree = "<group>"; };
+		6A65C04917BDE5ED0064BAE8 /* TitleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleVC.m; sourceTree = "<group>"; };
 		6AD91DFA17BA49EC007A0DF5 /* Cooking App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cooking App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD91DFD17BA49EC007A0DF5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6AD91DFF17BA49EC007A0DF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,6 +87,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A65C04717BDE5670064BAE8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6AD91E1817BA49ED007A0DF5 /* ViewController.h */,
+				6AD91E1917BA49ED007A0DF5 /* ViewController.m */,
+				6A65C04817BDE5ED0064BAE8 /* TitleVC.h */,
+				6A65C04917BDE5ED0064BAE8 /* TitleVC.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		6AD91DF117BA49EC007A0DF5 = {
 			isa = PBXGroup;
 			children = (
@@ -117,11 +131,10 @@
 		6AD91E0317BA49ED007A0DF5 /* Cooking App */ = {
 			isa = PBXGroup;
 			children = (
+				6A65C04717BDE5670064BAE8 /* ViewControllers */,
 				6AD91E0C17BA49ED007A0DF5 /* AppDelegate.h */,
 				6AD91E0D17BA49ED007A0DF5 /* AppDelegate.m */,
 				6AD91E1517BA49ED007A0DF5 /* MainStoryboard.storyboard */,
-				6AD91E1817BA49ED007A0DF5 /* ViewController.h */,
-				6AD91E1917BA49ED007A0DF5 /* ViewController.m */,
 				6AD91E0417BA49ED007A0DF5 /* Supporting Files */,
 			);
 			path = "Cooking App";
@@ -273,6 +286,7 @@
 				6AD91E0A17BA49ED007A0DF5 /* main.m in Sources */,
 				6AD91E0E17BA49ED007A0DF5 /* AppDelegate.m in Sources */,
 				6AD91E1A17BA49ED007A0DF5 /* ViewController.m in Sources */,
+				6A65C04A17BDE5ED0064BAE8 /* TitleVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +467,7 @@
 				6AD91E3417BA49EE007A0DF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6AD91E3517BA49EE007A0DF5 /* Build configuration list for PBXNativeTarget "Cooking AppTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +476,7 @@
 				6AD91E3717BA49EE007A0DF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
