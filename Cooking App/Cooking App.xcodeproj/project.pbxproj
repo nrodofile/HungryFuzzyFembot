@@ -18,12 +18,13 @@
 		6AD91E1217BA49ED007A0DF5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD91E1117BA49ED007A0DF5 /* Default@2x.png */; };
 		6AD91E1417BA49ED007A0DF5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AD91E1317BA49ED007A0DF5 /* Default-568h@2x.png */; };
 		6AD91E1717BA49ED007A0DF5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD91E1517BA49ED007A0DF5 /* MainStoryboard.storyboard */; };
-		6AD91E1A17BA49ED007A0DF5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD91E1917BA49ED007A0DF5 /* ViewController.m */; };
 		6AD91E2217BA49EE007A0DF5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD91E2117BA49EE007A0DF5 /* SenTestingKit.framework */; };
 		6AD91E2317BA49EE007A0DF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD91DFD17BA49EC007A0DF5 /* UIKit.framework */; };
 		6AD91E2417BA49EE007A0DF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD91DFF17BA49EC007A0DF5 /* Foundation.framework */; };
 		6AD91E2C17BA49EE007A0DF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AD91E2A17BA49EE007A0DF5 /* InfoPlist.strings */; };
 		6AD91E2F17BA49EE007A0DF5 /* Cooking_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD91E2E17BA49EE007A0DF5 /* Cooking_AppTests.m */; };
+		6AD99DEB17C255B1008AAA52 /* RecipeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD99DEA17C255B1008AAA52 /* RecipeVC.m */; };
+		6AD99DEE17C2599B008AAA52 /* RecipeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,14 +54,16 @@
 		6AD91E1117BA49ED007A0DF5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6AD91E1317BA49ED007A0DF5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6AD91E1617BA49ED007A0DF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		6AD91E1817BA49ED007A0DF5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6AD91E1917BA49ED007A0DF5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6AD91E2017BA49EE007A0DF5 /* Cooking AppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cooking AppTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD91E2117BA49EE007A0DF5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6AD91E2917BA49EE007A0DF5 /* Cooking AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cooking AppTests-Info.plist"; sourceTree = "<group>"; };
 		6AD91E2B17BA49EE007A0DF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6AD91E2D17BA49EE007A0DF5 /* Cooking_AppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cooking_AppTests.h; sourceTree = "<group>"; };
 		6AD91E2E17BA49EE007A0DF5 /* Cooking_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cooking_AppTests.m; sourceTree = "<group>"; };
+		6AD99DE917C255B1008AAA52 /* RecipeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeVC.h; sourceTree = "<group>"; };
+		6AD99DEA17C255B1008AAA52 /* RecipeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeVC.m; sourceTree = "<group>"; };
+		6AD99DEC17C2599B008AAA52 /* RecipeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailVC.h; sourceTree = "<group>"; };
+		6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +93,12 @@
 		6A65C04717BDE5670064BAE8 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6AD91E1817BA49ED007A0DF5 /* ViewController.h */,
-				6AD91E1917BA49ED007A0DF5 /* ViewController.m */,
 				6AC1ABBF17C22230005E7AFB /* TitleVC.h */,
 				6AC1ABC017C22230005E7AFB /* TitleVC.m */,
+				6AD99DE917C255B1008AAA52 /* RecipeVC.h */,
+				6AD99DEA17C255B1008AAA52 /* RecipeVC.m */,
+				6AD99DEC17C2599B008AAA52 /* RecipeDetailVC.h */,
+				6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -285,8 +290,9 @@
 			files = (
 				6AD91E0A17BA49ED007A0DF5 /* main.m in Sources */,
 				6AD91E0E17BA49ED007A0DF5 /* AppDelegate.m in Sources */,
-				6AD91E1A17BA49ED007A0DF5 /* ViewController.m in Sources */,
 				6AC1ABC117C22230005E7AFB /* TitleVC.m in Sources */,
+				6AD99DEB17C255B1008AAA52 /* RecipeVC.m in Sources */,
+				6AD99DEE17C2599B008AAA52 /* RecipeDetailVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

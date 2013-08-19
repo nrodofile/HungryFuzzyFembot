@@ -9,25 +9,33 @@
 #import "TitleVC.h"
 
 @interface TitleVC ()
-
 @end
 
 @implementation TitleVC
+
 @synthesize myTableView, myIngredients, myTextField;
 
-
+/*
+ * This method runs when the screen loaded successfully.
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // set the delegate and datasource to self
     myTableView.delegate = self;
     myTableView.dataSource = self;
     
+    // initialise the array with preset ingredients
     myIngredients = [[NSMutableArray alloc] initWithObjects:@"Pasta", @"Tomato", @"Beef", @"Olives", @"Cheese", nil];
     
+    // allow deletion of tableView during run-time
     [self.myTableView setEditing:TRUE animated:YES];
     
+    // Gesture recognizer which listens when the user touches the tableView background.
+    // When fired, it will dismiss the keyboard.
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     gestureRecognizer.cancelsTouchesInView = NO;
+    
     [myTableView addGestureRecognizer:gestureRecognizer];
 }
 
@@ -39,33 +47,30 @@
 #pragma mark - event methods
 
 /*
- * Closes the keyboard.
+ * Dismisses the keyboard
  */
 - (void)dismissKeyboard {
     [myTextField resignFirstResponder];
     myTextField.text = @"";
 }
 
-/* 
- * Whenever background is touched, close the keyboard if it is up. 
- * Clears the text.
+/*
+ * Dismisses the keyboard when the background is touched.
  */
 - (IBAction)backgroundTouched:(id)sender {
-    [myTextField resignFirstResponder];
-    myTextField.text = @"";
+    [self dismissKeyboard];
 }
 
 /*
- * Adds the ingredient to myIngredients and updates the tableView. 
+ * Adds the string in myTextField to myIngredients array.
+ * Clears the textfield and dismisses the keyboard.
  */
 - (IBAction)textFieldReturn:(id)sender {
     if (myTextField.text.length > 0) {
         [myIngredients addObject:myTextField.text];
         
         [myTableView reloadData];
-        
-        [myTextField resignFirstResponder];
-        myTextField.text = @"";
+        [self dismissKeyboard];
     }
 }
 
@@ -91,15 +96,13 @@
     }
     
     cell.textLabel.text = [myIngredients objectAtIndex:indexPath.row];
-    
     return cell;
 }
 
 /*
- * Removes the selected ingredient from the tableView and the myIngredient MutableArray.
+ * Removes the selected ingredient from the tableView and myIngredient MutableArray.
  */
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // remove from our NSMutableArray
         [myIngredients removeObjectAtIndex:indexPath.row];

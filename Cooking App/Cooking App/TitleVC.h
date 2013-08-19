@@ -11,11 +11,23 @@
 @interface TitleVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
-@property (strong, nonatomic) NSMutableArray *myIngredients;
 @property (weak, nonatomic) IBOutlet UITextField *myTextField;
+@property (strong, nonatomic) NSMutableArray *myIngredients;
 
+/*
+ * Adds the string in myTextField to myIngredients array.
+ * Clears the textfield and dismisses the keyboard.
+ */
 - (IBAction)textFieldReturn:(id)sender;
+
+/*
+ * Dismisses the keyboard when the background is touched. 
+ */
 - (IBAction)backgroundTouched:(id)sender;
+
+/*
+ * Dismisses the keyboard
+ */
 - (void)dismissKeyboard;
 
 @end
