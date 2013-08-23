@@ -25,6 +25,7 @@
 		6AD91E2F17BA49EE007A0DF5 /* Cooking_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD91E2E17BA49EE007A0DF5 /* Cooking_AppTests.m */; };
 		6AD99DEB17C255B1008AAA52 /* RecipeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD99DEA17C255B1008AAA52 /* RecipeVC.m */; };
 		6AD99DEE17C2599B008AAA52 /* RecipeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */; };
+		7F2D8BA617C5C0B2002F3A99 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D8BA517C5C0B2002F3A99 /* Recipe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		6AD99DEA17C255B1008AAA52 /* RecipeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeVC.m; sourceTree = "<group>"; };
 		6AD99DEC17C2599B008AAA52 /* RecipeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailVC.h; sourceTree = "<group>"; };
 		6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailVC.m; sourceTree = "<group>"; };
+		7F2D8BA417C5C0B2002F3A99 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		7F2D8BA517C5C0B2002F3A99 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				6AD99DE917C255B1008AAA52 /* RecipeVC.h */,
 				6AD99DEA17C255B1008AAA52 /* RecipeVC.m */,
 				6AD99DEC17C2599B008AAA52 /* RecipeDetailVC.h */,
+				7F2D8BA417C5C0B2002F3A99 /* Recipe.h */,
+				7F2D8BA517C5C0B2002F3A99 /* Recipe.m */,
 				6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */,
 			);
 			name = ViewControllers;
@@ -293,6 +298,7 @@
 				6AC1ABC117C22230005E7AFB /* TitleVC.m in Sources */,
 				6AD99DEB17C255B1008AAA52 /* RecipeVC.m in Sources */,
 				6AD99DEE17C2599B008AAA52 /* RecipeDetailVC.m in Sources */,
+				7F2D8BA617C5C0B2002F3A99 /* Recipe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
