@@ -65,7 +65,8 @@
  * Passes recipe information to the destination view control.
  *
  * NOTE TO PROGRAMMER: 
- * This is where you want to pass objects from this view control.
+ * This is where you want to pass objects from this view control 
+ * to the desintation view controller.
  */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
