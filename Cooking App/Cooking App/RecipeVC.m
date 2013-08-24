@@ -10,6 +10,7 @@
 #import "RecipeDetailVC.h"
 
 @interface RecipeVC ()
+
 @end
 
 @implementation RecipeVC {
@@ -82,4 +83,5 @@
         destVC.recipeName = [recipes objectAtIndex:indexPath.row];
     }
 }
+
 @end
