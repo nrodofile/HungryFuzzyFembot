@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Recipe.h"
+#import "Ingredient.h"
 
 @implementation AppDelegate
 
@@ -15,25 +16,107 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+#pragma mark - Core Data add, fetch methods
+
+/* 
+ * Adds recipes to local datastore.
+ * This is the only way to insert recipes until we create a UI recipe maker.
+ */
+- (void)addRecipe {
+    Recipe *recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:self.managedObjectContext];
+    
+    // set recipe properties
+    recipe.title = @"Eggs Benedict";
+    recipe.prepTime = [NSNumber numberWithInt:15];
+    recipe.cookTime = [NSNumber numberWithInt:35];
+    recipe.difficulty = [NSNumber numberWithInt:3];     // difficulty out of 5 (1 - easiest, 5 - hardest)
+    recipe.yield = [NSNumber numberWithInt:4];
+    recipe.rating = [NSNumber numberWithInt:4];         // rating out of 5
+    recipe.thumbnail = @"egg_benefict.jpg";
+    
+    // ingredients to be inserted
+    Ingredient *i1 = [self createIngredientWithTitle:@"free-range eggs" Amount:[NSNumber numberWithInt:8] Measurement:@"50g"];
+    [recipe addIngredientsObject:i1];
+    
+    Ingredient *i2 = [self createIngredientWithTitle:@"Salt" Amount:nil Measurement:@"Pinch"];
+    [recipe addIngredientsObject:i2];
+    
+    Ingredient *i3 = [self createIngredientWithTitle:@"Ham Speck" Amount:[NSNumber numberWithInt:8] Measurement:@"Slices"];
+    [recipe addIngredientsObject:i3];
+    
+    Ingredient *i4 = [self createIngredientWithTitle:@"baguette (French Stick)" Amount:[NSNumber numberWithInt:0.5] Measurement:nil];
+    [recipe addIngredientsObject:i4];
+    
+    Ingredient *i5 = [self createIngredientWithTitle:@"butter (optional)" Amount:[NSNumber numberWithInt:50] Measurement:@"g"];
+    [recipe addIngredientsObject:i5];
+    
+    Ingredient *i6 = [self createIngredientWithTitle:@"bunch fresh chives" Amount:[NSNumber numberWithInt:0.5] Measurement:nil];
+    [recipe addIngredientsObject:i6];
+    
+
+    // handle the error message
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Problem saving: %@", [error localizedDescription]);
+    } else {
+        NSLog(@"Inserted Recipe: %@ - success!", recipe.title);
+    }
+}
+
+/*
+ * Creates and returns an Ingredient* to store in a Recipe*
+ */
+- (Ingredient *)createIngredientWithTitle:(NSString *)title Amount:(NSNumber *)amount Measurement:(NSString *)measurement {
+    Ingredient *ingredient = [NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:self.managedObjectContext];
+    
+    // set ingredient properties
+    ingredient.title = title;
+    ingredient.amount = amount;
+    ingredient.measurement = measurement;
+    
+    return ingredient;
+}
+
+/* 
+ * Returns all recipe data in datastore as NSArray*
+ */
+- (NSArray *)fetchAllRecipeData {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
+    
+    return [self.managedObjectContext executeFetchRequest:request error:nil];
+}
+
+/*
+ * Fetches all recipe data with the matching predicate
+ */
+- (NSArray *)fetchRecipeDataWithPredicate:(NSArray *)predicates {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
+    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+    
+    [request setPredicate:predicate];
+
+    return [self.managedObjectContext executeFetchRequest:request error:nil];
+}
+
+
+#pragma mark - AppDelegate methods
+
 /* 
  * After finishing loading, create some Core Data objects and insert them to Core Data.
  */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSArray *recipeTitle = [[NSArray alloc] initWithObjects:@"Mushroom Risotto", @"Egg Benedict", @"Full Breakfast", nil];
     
-    NSManagedObjectContext *context = [self managedObjectContext];
+    // adds recipe to local datastore. comment when done to avoid duplicates
+    //[self addRecipe];
     
-    for (int i = 0; i < recipeTitle.count; i++) {
-        Recipe *recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
-        recipe.id = [NSNumber numberWithInt:i];
-        recipe.title = recipeTitle[i];
-        
-        NSError *error;
-        [context save:&error];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ingredients.title CONTAINS[cd] 'eggs'"];
+    NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
+    NSArray *results = [self fetchRecipeDataWithPredicate:predicates];
+    
+    for (Recipe *recipe in results) {
+        NSLog(@"Recipe Name: %@", recipe.title);
     }
-    
-    
-    
     return YES;
 }
 

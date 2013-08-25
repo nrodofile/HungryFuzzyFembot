@@ -7,8 +7,6 @@
 //
 
 #import "TitleVC.h"
-#import "AppDelegate.h"
-#import "Recipe.h"
 
 @interface TitleVC ()
 @end
@@ -39,33 +37,6 @@
     gestureRecognizer.cancelsTouchesInView = NO;
     
     [myTableView addGestureRecognizer:gestureRecognizer];
-
-    
-    //test core data stuff
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
-    
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDesc];
-
-    NSError *error;
-    
-    NSArray *objects = [context executeFetchRequest:request error:&error];
-    
-    if ([objects count] == 0) {
-        
-    } else {
-        for (Recipe *recipe in objects) {
-            NSLog(@"ID: %@", [recipe valueForKey:@"id"]);
-            NSLog(@"Title: %@", [recipe valueForKey:@"title"]);
-        }        
-    }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - event methods
