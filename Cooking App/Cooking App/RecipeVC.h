@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Tristan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface RecipeVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface RecipeVC : ViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 

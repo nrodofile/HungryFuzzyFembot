@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A219C4D17CC548D00E5545D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A219C4C17CC548D00E5545D /* ViewController.m */; };
 		6A44039517C8BEB000BD09A0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A44039317C8BEB000BD09A0 /* Default@2x.png */; };
 		6A44039717C8C04600BD09A0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A44039617C8C04600BD09A0 /* Default.png */; };
 		6A6698F517C9D22A00F7B2D1 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6698F417C9D22A00F7B2D1 /* Recipe.m */; };
@@ -60,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A219C4B17CC548D00E5545D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6A219C4C17CC548D00E5545D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6A44039317C8BEB000BD09A0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A44039617C8C04600BD09A0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6A6698F317C9D22A00F7B2D1 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				6AD99DEA17C255B1008AAA52 /* RecipeVC.m */,
 				6AD99DEC17C2599B008AAA52 /* RecipeDetailVC.h */,
 				6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */,
+				6A219C4B17CC548D00E5545D /* ViewController.h */,
+				6A219C4C17CC548D00E5545D /* ViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				6AE1542B17C855E700F2B9CA /* RecipeDb.xcdatamodeld in Sources */,
 				6ADF7EE617C9BCF4007B48AB /* Ingredient.m in Sources */,
 				6A6698F517C9D22A00F7B2D1 /* Recipe.m in Sources */,
+				6A219C4D17CC548D00E5545D /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -77,27 +77,6 @@
     return ingredient;
 }
 
-/* 
- * Returns all recipe data in datastore as NSArray*
- */
-- (NSArray *)fetchAllRecipeData {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
-    
-    return [self.managedObjectContext executeFetchRequest:request error:nil];
-}
-
-/*
- * Fetches all recipe data with the matching predicate
- */
-- (NSArray *)fetchRecipeDataWithPredicate:(NSArray *)predicates {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
-    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
-    
-    [request setPredicate:predicate];
-
-    return [self.managedObjectContext executeFetchRequest:request error:nil];
-}
-
 
 #pragma mark - AppDelegate methods
 
@@ -109,14 +88,6 @@
     // adds recipe to local datastore. comment when done to avoid duplicates
     //[self addRecipe];
     
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ingredients.title CONTAINS[cd] 'eggs'"];
-    NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
-    NSArray *results = [self fetchRecipeDataWithPredicate:predicates];
-    
-    for (Recipe *recipe in results) {
-        NSLog(@"Recipe Name: %@", recipe.title);
-    }
     return YES;
 }
 

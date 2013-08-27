@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Tristan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface TitleVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TitleVC : ViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UITextField *myTextField;

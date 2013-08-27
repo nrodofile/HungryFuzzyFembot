@@ -8,13 +8,15 @@
 
 #import "RecipeVC.h"
 #import "RecipeDetailVC.h"
+#import "AppDelegate.h"
 
 @interface RecipeVC ()
 
 @end
 
 @implementation RecipeVC {
-    NSMutableArray *recipes;            // temporary storage for recipes
+    NSManagedObjectContext *context;
+    NSArray *recipes;            // temporary storage for recipes
 }
 
 @synthesize myTableView;
@@ -27,12 +29,8 @@
     myTableView.delegate = self;
     myTableView.dataSource = self;
     
-    // initialise with preset recipes
-    recipes = [[NSMutableArray alloc] initWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    // initialise recipes from Core Data
+    recipes = [self fetchAllRecipeData];
 }
 
 #pragma mark - tableView delegate methods
@@ -56,7 +54,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
     }
     
-    cell.textLabel.text = [recipes objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[recipes objectAtIndex:indexPath.row] title];
     return cell;
 }
 
@@ -80,7 +78,7 @@
         //
         // Do your passing data here.
         //
-        destVC.recipeName = [recipes objectAtIndex:indexPath.row];
+        destVC.recipeName = [[recipes objectAtIndex:indexPath.row] title];
     }
 }
 
