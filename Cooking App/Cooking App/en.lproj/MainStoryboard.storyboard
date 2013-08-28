@@ -212,16 +212,27 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ingredients shud include equipment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Azu-ai-UOT">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="210" id="nWD-Gz-6ri"/>
+                                            <constraint firstAttribute="height" constant="21" id="oAL-P0-YCI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="8fJ-1d-JBz" firstAttribute="leading" secondItem="rf4-mo-h28" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0Yj-AU-svm"/>
-                                    <constraint firstItem="iKD-Wa-a4S" firstAttribute="centerX" secondItem="rf4-mo-h28" secondAttribute="centerX" type="default" id="7yO-OB-E3n"/>
+                                    <constraint firstItem="Azu-ai-UOT" firstAttribute="top" secondItem="rf4-mo-h28" secondAttribute="top" constant="-5" id="4Py-lX-NwX"/>
                                     <constraint firstItem="SY5-6J-QxX" firstAttribute="top" secondItem="rf4-mo-h28" secondAttribute="top" constant="208" id="Jaj-RL-BRJ"/>
                                     <constraint firstItem="SY5-6J-QxX" firstAttribute="trailing" secondItem="iKD-Wa-a4S" secondAttribute="trailing" type="default" id="KJV-q4-enc"/>
+                                    <constraint firstItem="Azu-ai-UOT" firstAttribute="leading" secondItem="rf4-mo-h28" secondAttribute="leading" constant="99" id="YiQ-NF-7Bp"/>
                                     <constraint firstItem="iKD-Wa-a4S" firstAttribute="top" secondItem="8fJ-1d-JBz" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zpf-24-GZu"/>
                                     <constraint firstAttribute="bottom" secondItem="SY5-6J-QxX" secondAttribute="bottom" constant="8" id="aER-oh-jTB"/>
+                                    <constraint firstItem="SY5-6J-QxX" firstAttribute="centerX" secondItem="rf4-mo-h28" secondAttribute="centerX" type="default" id="awH-d6-qXN"/>
                                     <constraint firstItem="SY5-6J-QxX" firstAttribute="leading" secondItem="iKD-Wa-a4S" secondAttribute="leading" type="default" id="baj-5b-Sdu"/>
-                                    <constraint firstAttribute="trailing" secondItem="iKD-Wa-a4S" secondAttribute="trailing" constant="37" id="pXl-go-yMn"/>
+                                    <constraint firstAttribute="trailing" secondItem="Azu-ai-UOT" secondAttribute="trailing" constant="11" id="bpb-Rl-Q5U"/>
                                     <constraint firstItem="8fJ-1d-JBz" firstAttribute="top" secondItem="rf4-mo-h28" secondAttribute="top" constant="9" id="yoo-dk-iF8"/>
                                 </constraints>
                                 <inset key="scrollIndicatorInsets" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -266,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2V-0W-NEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1084" y="-296"/>
+            <point key="canvasLocation" x="-1118" y="-296"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sWL-Ie-eIm">
