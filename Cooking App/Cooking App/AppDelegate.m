@@ -32,7 +32,7 @@
     recipe.difficulty = [NSNumber numberWithInt:3];     // difficulty out of 5 (1 - easiest, 5 - hardest)
     recipe.yield = [NSNumber numberWithInt:4];
     recipe.rating = [NSNumber numberWithInt:4];         // rating out of 5
-    recipe.thumbnail = @"egg_benefict.jpg";
+    recipe.thumbnail = @"egg_benedict.jpg";
     
     // ingredients to be inserted
     Ingredient *i1 = [self createIngredientWithTitle:@"free-range eggs" Amount:[NSNumber numberWithInt:8] Measurement:@"50g"];
@@ -86,7 +86,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // adds recipe to local datastore. comment when done to avoid duplicates
-    //[self addRecipe];
+    [self addRecipe];
     
     return YES;
 }

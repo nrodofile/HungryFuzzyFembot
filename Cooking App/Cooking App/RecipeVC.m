@@ -9,6 +9,7 @@
 #import "RecipeVC.h"
 #import "RecipeDetailVC.h"
 #import "AppDelegate.h"
+#import "Recipe.h"
 
 @interface RecipeVC ()
 
@@ -54,7 +55,20 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
     }
     
-    cell.textLabel.text = [[recipes objectAtIndex:indexPath.row] title];
+    Recipe *recipe = [recipes objectAtIndex:indexPath.row];
+    
+    // recipe image
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
+    imageView.image = [UIImage imageNamed:recipe.thumbnail];
+    
+    // recipe title
+    UILabel *recipeTitle = (UILabel *)[cell viewWithTag:101];
+    recipeTitle.text = recipe.title;
+    
+    // recipe details
+    UILabel *recipeDetails = (UILabel *)[cell viewWithTag:102];
+    recipeDetails.text = [NSString stringWithFormat:@"Cook Time: %@", recipe.cookTime];
+    
     return cell;
 }
 
