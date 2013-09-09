@@ -7,13 +7,14 @@
 //
 
 #import "TitleVC.h"
+#import "RecipeVC.h"
 
 @interface TitleVC ()
 @end
 
 @implementation TitleVC
 
-@synthesize myTableView, myIngredients, myTextField;
+@synthesize myTableView, myIngredients, myTextField, myRecipies;
 
 /*
  * This method runs when the screen loaded successfully.
@@ -26,7 +27,7 @@
     myTableView.dataSource = self;
     
     // initialise the array with preset ingredients
-    myIngredients = [[NSMutableArray alloc] initWithObjects:@"Pasta", @"Tomato", @"Beef", @"Olives", @"Cheese", nil];
+    myIngredients = [[NSMutableArray alloc] initWithObjects: nil];
     
     // allow deletion of tableView during run-time
     [self.myTableView setEditing:TRUE animated:YES];
@@ -105,6 +106,34 @@
         // remove from our tableview
         [myTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+
+/*
+ * Gets all Recipes using ingredients
+ */
+- (void)searchRecipes{
+	NSMutableArray *ingredients = [NSMutableArray array];
+	myRecipies = NULL;
+		for (int i = 0; i < myIngredients.count; i++) {
+				NSString *ingredient = [myIngredients objectAtIndex:i];
+				NSLog(@"%@",ingredient);
+				[ingredients addObject:[NSPredicate predicateWithFormat:@"ANY ingredients.title CONTAINS[cd] %@",ingredient]];
+		}
+	NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:ingredients];
+		NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
+		myRecipies = [self fetchRecipeDataWithPredicate:predicates];
+}
+
+/*
+ * prepare segue for RecipeVC, passing over all recipies
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+	RecipeVC * transferViewController = segue.destinationViewController;
+	
+		if ([segue.identifier isEqual:@"getRecipies"]) {
+				[self searchRecipes];
+				transferViewController.recipes = myRecipies;
+		};
 }
 
 @end

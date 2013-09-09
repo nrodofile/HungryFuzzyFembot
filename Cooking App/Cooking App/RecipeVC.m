@@ -17,10 +17,10 @@
 
 @implementation RecipeVC {
     NSManagedObjectContext *context;
-    NSArray *recipes;            // temporary storage for recipes
+    //NSArray *recipes;            // temporary storage for recipes
 }
 
-@synthesize myTableView;
+@synthesize myTableView, recipes;
 
 
 - (void)viewDidLoad {
@@ -31,7 +31,7 @@
     myTableView.dataSource = self;
     
     // initialise recipes from Core Data
-    recipes = [self fetchAllRecipeData];
+    //recipes = [self fetchAllRecipeData];
 }
 
 #pragma mark - tableView delegate methods

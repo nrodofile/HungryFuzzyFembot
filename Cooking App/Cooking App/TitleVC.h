@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UITextField *myTextField;
 @property (strong, nonatomic) NSMutableArray *myIngredients;
+@property (strong, nonatomic) NSArray *myRecipies;
 
 /*
  * Adds the string in myTextField to myIngredients array.
@@ -29,5 +30,15 @@
  * Dismisses the keyboard
  */
 - (void)dismissKeyboard;
+
+/*
+* Gets all Recipes using ingredients
+*/
+-(void)searchRecipes;
+
+/*
+ * prepare segue for RecipeVC, passing over all recipies
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 @end

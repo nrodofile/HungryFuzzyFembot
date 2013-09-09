@@ -11,5 +11,6 @@
 @interface RecipeVC : ViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
+@property (strong, nonatomic) NSArray *recipes;
 
 @end

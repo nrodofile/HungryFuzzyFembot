@@ -86,7 +86,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // adds recipe to local datastore. comment when done to avoid duplicates
-    [self addRecipe];
+   // [self addRecipe];
     
     return YES;
 }
