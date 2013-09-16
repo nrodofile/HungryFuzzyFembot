@@ -59,7 +59,14 @@
     
     // recipe image
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
-    imageView.image = [UIImage imageNamed:recipe.thumbnail];
+	
+
+//    imageView.image = [UIImage imageNamed:recipe.thumbnail];
+	
+	// NOTE: used as Example can be commented and uncomment above
+	//		 may need to add image URL to recipe object 
+	NSString *eggs = @"http://aww.ninemsn.com.au/img/food/cookbooks/eatingtogether/eggs.jpg";	
+	[self DownloadRecipeImage:eggs :imageView];
     
     // recipe title
     UILabel *recipeTitle = (UILabel *)[cell viewWithTag:101];
@@ -94,6 +101,21 @@
         //
         destVC.recipeName = [[recipes objectAtIndex:indexPath.row] title];
     }
+}
+
+/*
+ * Downloads image asyncronously from url
+ */
+-(void)DownloadRecipeImage:(NSString *)imgUrl :(UIImageView *) image{
+	
+	//sets queue for download
+	dispatch_queue_t downloadQueue = dispatch_queue_create("Image", NULL);
+	
+	//all tasks downloaded on seperate thread
+	dispatch_async(downloadQueue, ^{
+		NSURL *url = [NSURL URLWithString:imgUrl];
+		image.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];// Downloads for a long time!
+	});
 }
 
 @end
