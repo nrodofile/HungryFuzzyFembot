@@ -20,94 +20,33 @@
 
 #pragma mark - Core Data add, fetch methods
 
+// begins xml parsing
 - (void)XMLparse {
+    // init xmlparser with file
     NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"foodnetwork.xml"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:path];
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData: data];
     
-    Parser *theParser =[[Parser alloc] initParser];
+    // begin parsing data
+    Parser *theParser = [[Parser alloc] initParser];
     [xmlParser setDelegate:theParser];
+    [xmlParser parse];
     
-    BOOL worked = [xmlParser parse];
-    
-    if (worked) {
-        NSLog(@"Amount %i", [theParser.recipeArray count]);
-        // handle the error message
-        NSError *error;
-        if (![self.managedObjectContext save:&error]) {
-            NSLog(@"Problem saving: %@", [error localizedDescription]);
-        }
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Problem saving: %@", [error localizedDescription]);
     } else {
-        NSLog(@"boo");
+        NSLog(@"Core Data Count - %u recipes", theParser.recipeArray.count);
     }
 }
 
+// returns count of recipe objects in datastore
 - (NSInteger)countCoreData {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
     NSArray *recipes = [self.managedObjectContext executeFetchRequest:request error:nil];
     
     return recipes.count;
 }
-/* 
- * Adds recipes to local datastore.
- * This is the only way to insert recipes until we create a UI recipe maker.
- */
-/*
-- (void)addRecipe {
-    Recipe *recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:self.managedObjectContext];
-    
-    // set recipe properties
-    recipe.title = @"Eggs Benedict";
-    recipe.prepTime = [NSNumber numberWithInt:15];
-    recipe.cookTime = [NSNumber numberWithInt:35];
-    recipe.difficulty = [NSNumber numberWithInt:3];     // difficulty out of 5 (1 - easiest, 5 - hardest)
-    recipe.yield = [NSNumber numberWithInt:4];
-    recipe.rating = [NSNumber numberWithInt:4];         // rating out of 5
-    recipe.thumbnail = @"egg_benedict.jpg";
-    
-    // ingredients to be inserted
-    Ingredient *i1 = [self createIngredientWithTitle:@"free-range eggs" Amount:[NSNumber numberWithInt:8] Measurement:@"50g"];
-    [recipe addIngredientsObject:i1];
-    
-    Ingredient *i2 = [self createIngredientWithTitle:@"Salt" Amount:nil Measurement:@"Pinch"];
-    [recipe addIngredientsObject:i2];
-    
-    Ingredient *i3 = [self createIngredientWithTitle:@"Ham Speck" Amount:[NSNumber numberWithInt:8] Measurement:@"Slices"];
-    [recipe addIngredientsObject:i3];
-    
-    Ingredient *i4 = [self createIngredientWithTitle:@"baguette (French Stick)" Amount:[NSNumber numberWithInt:0.5] Measurement:nil];
-    [recipe addIngredientsObject:i4];
-    
-    Ingredient *i5 = [self createIngredientWithTitle:@"butter (optional)" Amount:[NSNumber numberWithInt:50] Measurement:@"g"];
-    [recipe addIngredientsObject:i5];
-    
-    Ingredient *i6 = [self createIngredientWithTitle:@"bunch fresh chives" Amount:[NSNumber numberWithInt:0.5] Measurement:nil];
-    [recipe addIngredientsObject:i6];
-    
-
-    // handle the error message
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Problem saving: %@", [error localizedDescription]);
-    } else {
-        NSLog(@"Inserted Recipe: %@ - success!", recipe.title);
-    }
-}
-*/
-/*
- * Creates and returns an Ingredient* to store in a Recipe*
- */
-/*- (Ingredient *)createIngredientWithTitle:(NSString *)title Amount:(NSNumber *)amount Measurement:(NSString *)measurement {
-    Ingredient *ingredient = [NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:self.managedObjectContext];
-    
-    // set ingredient properties
-    ingredient.title = title;
-    ingredient.amount = amount;
-    ingredient.measurement = measurement;
-    
-    return ingredient;
-}
-*/
 
 #pragma mark - AppDelegate methods
 
@@ -115,13 +54,11 @@
  * After finishing loading, create some Core Data objects and insert them to Core Data.
  */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    //adds recipe to local datastore. comment when done to avoid duplicates
-   //[self addRecipe];
-    
+    // init local data recipes
     if ([self countCoreData] == 0) {
         [self XMLparse];
     }
+    
     return YES;
 }
 

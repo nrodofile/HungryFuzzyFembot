@@ -7,6 +7,9 @@
 //
 
 #import "RecipeDetailVC.h"
+#import "Ingredient.h"
+
+#import "ArrayOutputTestVC.h"       // testing only, please remove afterwards
 
 @interface RecipeDetailVC ()
 
@@ -29,10 +32,19 @@
     rating.text = recipe.rating;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //segue to recipetest view
+    if ([segue.identifier isEqualToString:@"recipeTestSegue"]) {
+        ArrayOutputTestVC *destinationView = segue.destinationViewController;
+        destinationView.ingredients = recipe.ingredients;
+        destinationView.methods = recipe.method;
+    }
 }
 
 @end

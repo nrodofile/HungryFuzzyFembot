@@ -38,7 +38,7 @@
  */
 - (NSArray *)fetchRecipeDataWithPredicate:(NSArray *)predicates {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
-    NSPredicate *predicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicates];
+    NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
     
     [request setPredicate:predicate];
     

@@ -61,7 +61,6 @@
 //Do stuff
 -(void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
-    NSLog(@"%@", elementName);
     if ([elementName isEqualToString:@"foodnetwork"]) {
         return;
     }

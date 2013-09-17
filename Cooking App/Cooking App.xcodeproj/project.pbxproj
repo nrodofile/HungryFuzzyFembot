@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6A219C4D17CC548D00E5545D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A219C4C17CC548D00E5545D /* ViewController.m */; };
+		6A23AF7017E8704800B80DD9 /* ArrayOutputTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A23AF6F17E8704800B80DD9 /* ArrayOutputTestVC.m */; };
 		6A44039517C8BEB000BD09A0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A44039317C8BEB000BD09A0 /* Default@2x.png */; };
 		6A44039717C8C04600BD09A0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A44039617C8C04600BD09A0 /* Default.png */; };
 		6AA4E50717C85D800035694D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA4E50617C85D800035694D /* CoreData.framework */; };
@@ -67,6 +68,8 @@
 /* Begin PBXFileReference section */
 		6A219C4B17CC548D00E5545D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6A219C4C17CC548D00E5545D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6A23AF6E17E8704800B80DD9 /* ArrayOutputTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayOutputTestVC.h; sourceTree = "<group>"; };
+		6A23AF6F17E8704800B80DD9 /* ArrayOutputTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayOutputTestVC.m; sourceTree = "<group>"; };
 		6A44039317C8BEB000BD09A0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A44039617C8C04600BD09A0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6AA4E50617C85D800035694D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -172,6 +175,8 @@
 				6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */,
 				6A219C4B17CC548D00E5545D /* ViewController.h */,
 				6A219C4C17CC548D00E5545D /* ViewController.m */,
+				6A23AF6E17E8704800B80DD9 /* ArrayOutputTestVC.h */,
+				6A23AF6F17E8704800B80DD9 /* ArrayOutputTestVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 				7F9F844417E8138600F18825 /* Ingredient.m in Sources */,
 				7F4F3F9417E8448F00233834 /* Recipe.m in Sources */,
 				7F4F3F9717E8448F00233834 /* IngredientTags.m in Sources */,
+				6A23AF7017E8704800B80DD9 /* ArrayOutputTestVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
