@@ -14,13 +14,19 @@
 
 @implementation RecipeDetailVC
 
-@synthesize recipeLabel, recipeName;
+@synthesize recipeLabel, recipe, image, cooktime, preptime, yield, difficulty, rating;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-    self.title = recipeName;
-    recipeLabel.text = recipeName;
+    self.title = recipe.title;
+    recipeLabel.text = recipe.title;
+    image.image = [UIImage imageNamed:recipe.image];
+    cooktime.text = recipe.cooktime;
+    preptime.text = recipe.preptime;
+    yield.text = recipe.yield;
+    difficulty.text = recipe.difficulty;
+    rating.text = recipe.rating;
 }
 
 - (void)didReceiveMemoryWarning
