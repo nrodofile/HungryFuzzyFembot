@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "AppDelegate.h"
+#import "Recipe.h"
 
 @interface RecipeVC : ViewController <UITableViewDelegate, UITableViewDataSource>
 

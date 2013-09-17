@@ -48,6 +48,9 @@
 		6ADF7EE017C9B5E2007B48AB /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ADF7ECE17C9B5E2007B48AB /* white_chocolate_donut.jpg */; };
 		6ADF7EE617C9BCF4007B48AB /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF7EE517C9BCF4007B48AB /* Ingredient.m */; };
 		6AE1542B17C855E700F2B9CA /* RecipeDb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1542917C855E700F2B9CA /* RecipeDb.xcdatamodeld */; };
+		7F9990E517E7E7920043891A /* Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9990E217E7E7920043891A /* Method.m */; };
+		7F9990E617E7E7920043891A /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9990E417E7E7920043891A /* Parser.m */; };
+		7F9990E817E7E8730043891A /* foodnetwork.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7F9990E717E7E8730043891A /* foodnetwork.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +116,11 @@
 		6ADF7EE417C9BCF4007B48AB /* Ingredient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ingredient.h; sourceTree = "<group>"; };
 		6ADF7EE517C9BCF4007B48AB /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ingredient.m; sourceTree = "<group>"; };
 		6AE1542A17C855E700F2B9CA /* RecipeDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDb.xcdatamodel; sourceTree = "<group>"; };
+		7F9990E117E7E7910043891A /* Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Method.h; sourceTree = "<group>"; };
+		7F9990E217E7E7920043891A /* Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Method.m; sourceTree = "<group>"; };
+		7F9990E317E7E7920043891A /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		7F9990E417E7E7920043891A /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		7F9990E717E7E8730043891A /* foodnetwork.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = foodnetwork.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				6AE1542917C855E700F2B9CA /* RecipeDb.xcdatamodeld */,
+				7F9990E117E7E7910043891A /* Method.h */,
+				7F9990E217E7E7920043891A /* Method.m */,
 				6A6698F317C9D22A00F7B2D1 /* Recipe.h */,
 				6A6698F417C9D22A00F7B2D1 /* Recipe.m */,
 				6ADF7EE417C9BCF4007B48AB /* Ingredient.h */,
@@ -211,6 +221,9 @@
 		6AD91E0317BA49ED007A0DF5 /* Cooking App */ = {
 			isa = PBXGroup;
 			children = (
+				7F9990E717E7E8730043891A /* foodnetwork.xml */,
+				7F9990E317E7E7920043891A /* Parser.h */,
+				7F9990E417E7E7920043891A /* Parser.m */,
 				6AD91E0C17BA49ED007A0DF5 /* AppDelegate.h */,
 				6AD91E0D17BA49ED007A0DF5 /* AppDelegate.m */,
 				6AD91E1517BA49ED007A0DF5 /* MainStoryboard.storyboard */,
@@ -372,6 +385,7 @@
 				6ADF7EDE17C9B5E2007B48AB /* thai_shrimp_cake.jpg in Resources */,
 				6ADF7EDF17C9B5E2007B48AB /* vegetable_curry.jpg in Resources */,
 				6ADF7EE017C9B5E2007B48AB /* white_chocolate_donut.jpg in Resources */,
+				7F9990E817E7E8730043891A /* foodnetwork.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +429,8 @@
 				6ADF7EE617C9BCF4007B48AB /* Ingredient.m in Sources */,
 				6A6698F517C9D22A00F7B2D1 /* Recipe.m in Sources */,
 				6A219C4D17CC548D00E5545D /* ViewController.m in Sources */,
+				7F9990E517E7E7920043891A /* Method.m in Sources */,
+				7F9990E617E7E7920043891A /* Parser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

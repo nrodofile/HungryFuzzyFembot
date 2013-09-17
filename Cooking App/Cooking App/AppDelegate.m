@@ -9,19 +9,50 @@
 #import "AppDelegate.h"
 #import "Recipe.h"
 #import "Ingredient.h"
+#import "Parser.h"
 
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize listArray;
 
 #pragma mark - Core Data add, fetch methods
 
+- (void)XMLparse {
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"foodnetwork.xml"];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData: data];
+    
+    Parser *theParser =[[Parser alloc] initParser];
+    [xmlParser setDelegate:theParser];
+    
+    BOOL worked = [xmlParser parse];
+    
+    if (worked) {
+        NSLog(@"Amount %i", [theParser.recipeArray count]);
+        // handle the error message
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Problem saving: %@", [error localizedDescription]);
+        }
+    } else {
+        NSLog(@"boo");
+    }
+}
+
+- (NSInteger)countCoreData {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
+    NSArray *recipes = [self.managedObjectContext executeFetchRequest:request error:nil];
+    
+    return recipes.count;
+}
 /* 
  * Adds recipes to local datastore.
  * This is the only way to insert recipes until we create a UI recipe maker.
  */
+/*
 - (void)addRecipe {
     Recipe *recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:self.managedObjectContext];
     
@@ -62,7 +93,7 @@
         NSLog(@"Inserted Recipe: %@ - success!", recipe.title);
     }
 }
-
+*/
 /*
  * Creates and returns an Ingredient* to store in a Recipe*
  */
@@ -86,8 +117,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //adds recipe to local datastore. comment when done to avoid duplicates
-    [self addRecipe];
+   //[self addRecipe];
     
+    if ([self countCoreData] == 0) {
+        [self XMLparse];
+    }
     return YES;
 }
 

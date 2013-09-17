@@ -2,7 +2,7 @@
 //  Recipe.m
 //  Cooking App
 //
-//  Created by Tristan on 25/08/13.
+//  Created by Stuart Stirling on 15/09/13.
 //  Copyright (c) 2013 Tristan. All rights reserved.
 //
 
@@ -12,13 +12,20 @@
 
 @implementation Recipe
 
-@dynamic cookTime;
-@dynamic thumbnail;
-@dynamic title;
-@dynamic prepTime;
+@dynamic authorid;
+@dynamic cooktime;
 @dynamic difficulty;
+@dynamic image;
+@dynamic inactivetime;
+@dynamic name;
+@dynamic preptime;
 @dynamic rating;
+@dynamic recipeid;
+@dynamic title;
 @dynamic yield;
+@dynamic number;
+@dynamic label;
 @dynamic ingredients;
+@dynamic method;
 
 @end

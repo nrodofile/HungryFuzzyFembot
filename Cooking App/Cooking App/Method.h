@@ -1,5 +1,5 @@
 //
-//  Ingredient.h
+//  Method.h
 //  Cooking App
 //
 //  Created by Stuart Stirling on 15/09/13.
@@ -11,11 +11,11 @@
 
 @class Recipe;
 
-@interface Ingredient : NSManagedObject
+@interface Method : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * amount;
-@property (nonatomic, retain) NSString * measurement;
-@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSNumber * order;
+@property (nonatomic, retain) NSString * step;
 @property (nonatomic, retain) Recipe *recipe;
+
 
 @end

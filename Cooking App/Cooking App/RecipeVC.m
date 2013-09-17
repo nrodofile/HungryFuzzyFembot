@@ -74,7 +74,7 @@
     
     // recipe details
     UILabel *recipeDetails = (UILabel *)[cell viewWithTag:102];
-    recipeDetails.text = [NSString stringWithFormat:@"Cook Time: %@", recipe.cookTime];
+    recipeDetails.text = [NSString stringWithFormat:@"Cook Time: %@", recipe.cooktime];
     
     return cell;
 }
