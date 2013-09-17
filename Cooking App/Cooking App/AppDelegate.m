@@ -97,7 +97,7 @@
 /*
  * Creates and returns an Ingredient* to store in a Recipe*
  */
-- (Ingredient *)createIngredientWithTitle:(NSString *)title Amount:(NSNumber *)amount Measurement:(NSString *)measurement {
+/*- (Ingredient *)createIngredientWithTitle:(NSString *)title Amount:(NSNumber *)amount Measurement:(NSString *)measurement {
     Ingredient *ingredient = [NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:self.managedObjectContext];
     
     // set ingredient properties
@@ -107,7 +107,7 @@
     
     return ingredient;
 }
-
+*/
 
 #pragma mark - AppDelegate methods
 

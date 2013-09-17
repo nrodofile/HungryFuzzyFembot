@@ -8,8 +8,11 @@
 
 #import "Parser.h"
 
+
 @implementation Parser
 @synthesize recipeArray;
+
+
 
 -(id) initParser {
     if (self ==[super init]){
@@ -18,7 +21,9 @@
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         context = appDelegate.managedObjectContext;
         
+        
     }
+    
     return self;
 }
 
@@ -30,9 +35,13 @@
     }
     else if ([elementName isEqualToString:@"ingredient"]) {
         ingredient =[NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:context];
+        
     }
     else if ([elementName isEqualToString:@"methodstep"]) {
-
+       method =[NSEntityDescription insertNewObjectForEntityForName:@"Method" inManagedObjectContext:context];
+    }
+    else if ([elementName isEqualToString:@"tag"]) {
+        tag =[NSEntityDescription insertNewObjectForEntityForName:@"Ingredienttags" inManagedObjectContext:context];
     }
 }
 
@@ -68,22 +77,73 @@
         currentElementValue = nil;
     }
     else if ([elementName isEqualToString:@"ingredient"]){
-        [recipe addIngredientsObject:ingredient];
+        [recipe addIngredient:ingredient];
+        
+    }
+    else if ([elementName isEqualToString:@"number"]) {
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber * myNumber = [f numberFromString:currentElementValue];
+        
+        [ingredient setValue:myNumber forKey:elementName];
+
+    }
+    else if ([elementName isEqualToString:@"label"]) {
+        [ingredient setValue:currentElementValue forKey:elementName];
     }
     else if ([elementName isEqualToString:@"ingredients"]) {
-        currentElementValue = nil;
+    currentElementValue = nil;
+    }
+
+    else if ([elementName isEqualToString:@"order"]){
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber * myNumber = [f numberFromString:currentElementValue];
+        
+        [method setValue:myNumber forKey:elementName];
+
+    }
+    else if ([elementName isEqualToString:@"step"]) {
+        [method setValue:currentElementValue forKey:elementName];
+        
     }
     else if ([elementName isEqualToString:@"methodstep"]){
-
+        [recipe addAMethod:method];
     }
     else if ([elementName isEqualToString:@"method"]) {
         currentElementValue = nil;
     }
-    else {
+    else if ([elementName isEqualToString:@"nutrition"]) {
+        currentElementValue = nil;
+    }
+    else if ([elementName isEqualToString:@"nutritionid"]) {
+        currentElementValue = nil;
+    }
+    else if ([elementName isEqualToString:@"type"]) {
+        currentElementValue = nil;
+    }
+    else if ([elementName isEqualToString:@"ingredienttags"]) {
+        currentElementValue = nil;
+    }
+    else if ([elementName isEqualToString:@"tag"]) {
+        [recipe addIngredienttagsObject:tag];
+    }
+
+    else if ([elementName isEqualToString:@"tagid"]) {
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber * myNumber = [f numberFromString:currentElementValue];
         
+        [tag setValue:myNumber forKey:elementName];
+        
+    }
+    else if ([elementName isEqualToString:@"baseingredient"]) {
+        [tag setValue:currentElementValue forKey:elementName];
+    }
+    else {
         [recipe setValue:currentElementValue forKey:elementName];
         currentElementValue = nil;
-        
+
     }
 }
 

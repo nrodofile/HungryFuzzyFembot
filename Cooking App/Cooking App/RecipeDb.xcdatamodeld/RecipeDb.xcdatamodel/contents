@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES">
-        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
-        <attribute name="measurement" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <relationship name="recipe" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredients" inverseEntity="Recipe" syncable="YES"/>
     </entity>
-    <entity name="Method" syncable="YES">
-        <attribute name="order" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Ingredienttags" representedClassName="IngredientTags" syncable="YES">
+        <attribute name="baseingredient" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tagid" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="recipe" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="ingredienttags" inverseEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="Method" representedClassName="Method" syncable="YES">
+        <attribute name="order" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="step" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recipe" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" inverseName="method" inverseEntity="Recipe" syncable="YES"/>
     </entity>
     <entity name="Recipe" representedClassName="Recipe" syncable="YES">
         <attribute name="authorid" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,19 +21,20 @@
         <attribute name="difficulty" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="inactivetime" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="label" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preptime" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="recipeid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="yield" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="recipe" inverseEntity="Ingredient" syncable="YES"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Ingredient" inverseName="recipe" inverseEntity="Ingredient" syncable="YES"/>
+        <relationship name="ingredienttags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredienttags" inverseName="recipe" inverseEntity="Ingredienttags" syncable="YES"/>
+        <relationship name="method" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Method" inverseName="recipe" inverseEntity="Method" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Ingredient" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="Method" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Ingredient" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="Method" positionX="160" positionY="192" width="128" height="90"/>
         <element name="Recipe" positionX="0" positionY="0" width="128" height="255"/>
+        <element name="Ingredienttags" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

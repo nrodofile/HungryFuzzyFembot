@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
 #import "Recipe.h"
+#import "Ingredient.h"
+#import "Method.h"
+#import "IngredientTags.h"
+
 
 
 @interface Parser : NSObject <NSXMLParserDelegate> {
@@ -16,8 +20,10 @@
     Recipe *recipe;
     Ingredient *ingredient;
     Method *method;
+    IngredientTags *tag;
     
     NSMutableString *currentElementValue;
+    
 }
 
 @property (nonatomic, retain) NSMutableArray *recipeArray;
