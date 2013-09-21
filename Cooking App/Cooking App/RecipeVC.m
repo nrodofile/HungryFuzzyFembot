@@ -10,6 +10,8 @@
 #import "RecipeDetailVC.h"
 #import "AppDelegate.h"
 #import "Recipe.h"
+#import "Ingredient.h"
+#import "Method.h"
 
 @interface RecipeVC ()
 
@@ -98,6 +100,7 @@
         
         //
         // Do your passing data here.
+        // yumin modified
         //
         destVC.recipe = [recipes objectAtIndex:indexPath.row];
         destVC.recipe.title = [[recipes objectAtIndex:indexPath.row] title];

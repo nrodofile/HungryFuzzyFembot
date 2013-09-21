@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="4g8-SJ-LWa" customClass="TitleVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mjv-YY-Dp3" customClass="UIControl">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Ingredient" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-Hh-A8k">
@@ -81,7 +81,7 @@
             <objects>
                 <viewController id="CNC-mQ-hLy" customClass="RecipeVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fT0-pW-6Q6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="69" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OYO-Ij-SkM">
@@ -367,12 +367,12 @@
                                 <items>
                                     <barButtonItem title="You'll need" width="150" id="Z9R-Oj-eZZ">
                                         <connections>
-                                            <segue destination="b1e-hY-8gX" kind="push" id="jKU-PY-wNM"/>
+                                            <segue destination="b1e-hY-8gX" kind="push" identifier="recipeingredientSegue" id="jKU-PY-wNM"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Methods" width="150" id="iwx-YQ-hJD">
                                         <connections>
-                                            <segue destination="9OX-YW-hNg" kind="push" id="fX1-9w-euy"/>
+                                            <segue destination="9OX-YW-hNg" kind="push" identifier="recipeMethodSegue" id="fX1-9w-euy"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -405,124 +405,16 @@
             </objects>
             <point key="canvasLocation" x="-1342" y="-482"/>
         </scene>
-        <!--Ingredients Details-->
+        <!--IngredientVC-->
         <scene sceneID="EIO-dt-QDY">
             <objects>
-                <viewController id="b1e-hY-8gX" customClass="IngredientsDetails" sceneMemberID="viewController">
+                <viewController id="b1e-hY-8gX" customClass="IngredientVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hd3-K1-aF6">
                         <rect key="frame" x="0.0" y="64" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Av1-rI-5ZZ">
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OB4-K6-U1q">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="508" id="9mI-fy-CSC"/>
-                                            <constraint firstAttribute="width" constant="273" id="BTW-zQ-xaG"/>
-                                        </constraints>
-                                        <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="doC-9V-bQY">
-                                                <rect key="frame" x="0.0" y="22" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="Ssy-me-bGu">
-                                                <rect key="frame" x="0.0" y="66" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="dva-ta-0E0">
-                                                <rect key="frame" x="0.0" y="110" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="aVE-ki-tw3">
-                                                <rect key="frame" x="0.0" y="154" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="h74-Km-lYs">
-                                                <rect key="frame" x="0.0" y="198" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="Oyk-jy-1q5">
-                                                <rect key="frame" x="0.0" y="242" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="1Lc-jd-c5C">
-                                                <rect key="frame" x="0.0" y="286" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="2wa-Ea-oVZ">
-                                                <rect key="frame" x="0.0" y="330" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="BIH-LV-nAo">
-                                                <rect key="frame" x="0.0" y="374" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="hNj-3Q-UvR">
-                                                <rect key="frame" x="0.0" y="418" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="LWh-vn-Ca8">
-                                                <rect key="frame" x="0.0" y="462" width="273" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="WXf-dO-T55"/>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8a0-I8-qKl">
                                         <segments>
@@ -530,16 +422,26 @@
                                             <segment title="Equipments"/>
                                         </segments>
                                     </segmentedControl>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fb2-Xw-Inb">
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="275" id="0OL-El-PB4"/>
+                                            <constraint firstAttribute="height" constant="300" id="TJm-jg-gTa"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="WXf-dO-T55" firstAttribute="leading" secondItem="Av1-rI-5ZZ" secondAttribute="leading" type="default" id="1wK-8E-KtN"/>
                                     <constraint firstItem="8a0-I8-qKl" firstAttribute="leading" secondItem="Av1-rI-5ZZ" secondAttribute="leading" constant="14" id="4JC-zt-HO9"/>
-                                    <constraint firstItem="OB4-K6-U1q" firstAttribute="top" secondItem="Av1-rI-5ZZ" secondAttribute="top" constant="67" id="O7o-SV-dd8"/>
-                                    <constraint firstItem="8a0-I8-qKl" firstAttribute="leading" secondItem="OB4-K6-U1q" secondAttribute="leading" type="default" id="Uvs-hC-2WB"/>
-                                    <constraint firstAttribute="bottom" secondItem="OB4-K6-U1q" secondAttribute="bottom" constant="181" id="pek-Ka-7Mn"/>
-                                    <constraint firstAttribute="trailing" secondItem="OB4-K6-U1q" secondAttribute="trailing" constant="33" id="vvl-EQ-c8h"/>
+                                    <constraint firstItem="Fb2-Xw-Inb" firstAttribute="leading" secondItem="Av1-rI-5ZZ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GN8-Fp-EmZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fb2-Xw-Inb" secondAttribute="bottom" constant="376" id="SsJ-CK-DFJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fb2-Xw-Inb" secondAttribute="trailing" constant="25" id="ihh-zj-3m4"/>
                                     <constraint firstItem="WXf-dO-T55" firstAttribute="top" secondItem="Av1-rI-5ZZ" secondAttribute="top" constant="198" id="wht-qY-Ue9"/>
                                     <constraint firstItem="8a0-I8-qKl" firstAttribute="top" secondItem="Av1-rI-5ZZ" secondAttribute="top" constant="11" id="zSs-3a-aDp"/>
+                                    <constraint firstItem="Fb2-Xw-Inb" firstAttribute="top" secondItem="Av1-rI-5ZZ" secondAttribute="top" constant="80" id="zz4-s8-VG1"/>
                                 </constraints>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="800" maxY="0.0"/>
                             </scrollView>
@@ -562,46 +464,52 @@
                     </view>
                     <navigationItem key="navigationItem" id="Msw-aq-lW3"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="ingredientTextView" destination="Fb2-Xw-Inb" id="NcH-Rt-agi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7d-x9-b9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-798" y="-1074"/>
         </scene>
-        <!--Methods Details-->
+        <!--MethodVC-->
         <scene sceneID="UDf-ZM-Xix">
             <objects>
-                <viewController id="9OX-YW-hNg" customClass="MethodsDetails" sceneMemberID="viewController">
+                <viewController id="9OX-YW-hNg" customClass="MethodVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PmF-kb-3xf">
                         <rect key="frame" x="0.0" y="64" width="320" height="800"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyW-n1-4s5" customClass="methodText">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="QO7-uI-8H6"/>
+                                    <constraint firstAttribute="height" constant="300" id="XWN-tN-pyj"/>
+                                </constraints>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTq-zW-MqO">
                                 <items>
                                     <navigationItem title="Recipe Summary" id="8cd-lw-Rw1"/>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n09-Zb-tUe">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="GYx-c1-2iu"/>
-                                    <constraint firstAttribute="height" constant="341" id="qRo-Qa-x25"/>
-                                </constraints>
-                                <string key="text">(Steps1: XXXXXXXXXXXXXXXXXXXXX Steps 2 : XXXXXXXXXXXXXXXXXXXX Steps 3 : XXXXXXXXXXXXXXXXXXXXX)Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kyW-n1-4s5" firstAttribute="leading" secondItem="PmF-kb-3xf" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4Df-cG-e2F"/>
                             <constraint firstItem="YTq-zW-MqO" firstAttribute="trailing" secondItem="PmF-kb-3xf" secondAttribute="trailing" type="default" id="MJg-5n-TuG"/>
-                            <constraint firstItem="n09-Zb-tUe" firstAttribute="top" secondItem="PmF-kb-3xf" secondAttribute="top" constant="81" id="aHr-I1-WWM"/>
                             <constraint firstItem="YTq-zW-MqO" firstAttribute="leading" secondItem="PmF-kb-3xf" secondAttribute="leading" type="default" id="fM1-c7-Zg9"/>
+                            <constraint firstItem="kyW-n1-4s5" firstAttribute="top" secondItem="PmF-kb-3xf" secondAttribute="top" constant="80" id="iAv-Wp-UiH"/>
                             <constraint firstItem="YTq-zW-MqO" firstAttribute="top" secondItem="PmF-kb-3xf" secondAttribute="top" type="default" id="ulZ-7r-VoV"/>
-                            <constraint firstItem="n09-Zb-tUe" firstAttribute="centerX" secondItem="YTq-zW-MqO" secondAttribute="centerX" type="default" id="wQx-oX-IpX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gJb-3l-XlV"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="methodTextView" destination="kyW-n1-4s5" id="sHE-NU-m8w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KyC-cS-6k1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -631,6 +539,18 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ArrayOutputTestVC.h"/>
             <relationships>
                 <relationship kind="outlet" name="textField" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="IngredientVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IngredientVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ingredientTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="MethodVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MethodVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="methodTextView" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -670,6 +590,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

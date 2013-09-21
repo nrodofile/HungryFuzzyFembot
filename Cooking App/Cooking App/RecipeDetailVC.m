@@ -8,6 +8,9 @@
 
 #import "RecipeDetailVC.h"
 #import "Ingredient.h"
+#import "Method.h"
+#import "IngredientVC.h"
+#import "MethodVC.h"
 
 #import "ArrayOutputTestVC.h"       // testing only, please remove afterwards
 
@@ -40,9 +43,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     //segue to recipetest view
-    if ([segue.identifier isEqualToString:@"recipeTestSegue"]) {
-        ArrayOutputTestVC *destinationView = segue.destinationViewController;
+    if ([segue.identifier isEqualToString:@"recipeingredientSegue"]) {
+        IngredientVC *destinationView = segue.destinationViewController;        
         destinationView.ingredients = recipe.ingredients;
+    }
+    
+    if ([segue.identifier isEqualToString:@"recipeMethodSegue"]) {
+        MethodVC *destinationView = segue.destinationViewController;        
         destinationView.methods = recipe.method;
     }
 }

@@ -47,6 +47,8 @@
 		6ADF7EDF17C9B5E2007B48AB /* vegetable_curry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ADF7ECD17C9B5E2007B48AB /* vegetable_curry.jpg */; };
 		6ADF7EE017C9B5E2007B48AB /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6ADF7ECE17C9B5E2007B48AB /* white_chocolate_donut.jpg */; };
 		6AE1542B17C855E700F2B9CA /* RecipeDb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AE1542917C855E700F2B9CA /* RecipeDb.xcdatamodeld */; };
+		72A3244917ED6CC800C78391 /* IngredientVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A3244817ED6CC700C78391 /* IngredientVC.m */; };
+		72A3244C17ED6CE600C78391 /* MethodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 72A3244B17ED6CE600C78391 /* MethodVC.m */; };
 		7F4F3F9417E8448F00233834 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F3F9317E8448F00233834 /* Recipe.m */; };
 		7F4F3F9717E8448F00233834 /* IngredientTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4F3F9617E8448F00233834 /* IngredientTags.m */; };
 		7F9990E617E7E7920043891A /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9990E417E7E7920043891A /* Parser.m */; };
@@ -116,6 +118,10 @@
 		6ADF7ECD17C9B5E2007B48AB /* vegetable_curry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vegetable_curry.jpg; sourceTree = "<group>"; };
 		6ADF7ECE17C9B5E2007B48AB /* white_chocolate_donut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white_chocolate_donut.jpg; sourceTree = "<group>"; };
 		6AE1542A17C855E700F2B9CA /* RecipeDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDb.xcdatamodel; sourceTree = "<group>"; };
+		72A3244717ED6CC700C78391 /* IngredientVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientVC.h; sourceTree = "<group>"; };
+		72A3244817ED6CC700C78391 /* IngredientVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IngredientVC.m; sourceTree = "<group>"; };
+		72A3244A17ED6CE600C78391 /* MethodVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodVC.h; sourceTree = "<group>"; };
+		72A3244B17ED6CE600C78391 /* MethodVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodVC.m; sourceTree = "<group>"; };
 		7F4F3F9217E8448E00233834 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
 		7F4F3F9317E8448F00233834 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		7F4F3F9517E8448F00233834 /* IngredientTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IngredientTags.h; sourceTree = "<group>"; };
@@ -177,6 +183,10 @@
 				6A219C4C17CC548D00E5545D /* ViewController.m */,
 				6A23AF6E17E8704800B80DD9 /* ArrayOutputTestVC.h */,
 				6A23AF6F17E8704800B80DD9 /* ArrayOutputTestVC.m */,
+				72A3244717ED6CC700C78391 /* IngredientVC.h */,
+				72A3244817ED6CC700C78391 /* IngredientVC.m */,
+				72A3244A17ED6CE600C78391 /* MethodVC.h */,
+				72A3244B17ED6CE600C78391 /* MethodVC.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -443,6 +453,8 @@
 				7F4F3F9417E8448F00233834 /* Recipe.m in Sources */,
 				7F4F3F9717E8448F00233834 /* IngredientTags.m in Sources */,
 				6A23AF7017E8704800B80DD9 /* ArrayOutputTestVC.m in Sources */,
+				72A3244917ED6CC800C78391 /* IngredientVC.m in Sources */,
+				72A3244C17ED6CE600C78391 /* MethodVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
