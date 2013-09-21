@@ -31,8 +31,7 @@
     
     
     NSMutableString *ingredientText = [NSMutableString string];
-    [ingredientText appendFormat:@"Ingredients Count - %i", self.ingredients.count];
-    
+        
     for (Ingredient *ingredient in self.ingredients) {
         [ingredientText appendFormat:@"\n- %@", ingredient.label];
     }

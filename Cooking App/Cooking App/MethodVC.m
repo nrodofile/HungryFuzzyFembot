@@ -30,7 +30,6 @@
 	// Do any additional setup after loading the view.
     
     NSMutableString *methodText = [NSMutableString string];
-    [methodText appendFormat:@"\n\nMethods Count - %i", self.methods.count];
     
     for (Method *method in self.methods) {
         [methodText appendFormat:@"\n- %@", method.step];

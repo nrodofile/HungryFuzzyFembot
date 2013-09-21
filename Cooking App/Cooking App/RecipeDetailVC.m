@@ -12,7 +12,7 @@
 #import "IngredientVC.h"
 #import "MethodVC.h"
 
-#import "ArrayOutputTestVC.h"       // testing only, please remove afterwards
+
 
 @interface RecipeDetailVC ()
 
