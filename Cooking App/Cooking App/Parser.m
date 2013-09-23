@@ -35,7 +35,6 @@
     }
     else if ([elementName isEqualToString:@"ingredient"]) {
         ingredient =[NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:context];
-        
     }
     else if ([elementName isEqualToString:@"methodstep"]) {
        method =[NSEntityDescription insertNewObjectForEntityForName:@"Method" inManagedObjectContext:context];
@@ -77,6 +76,7 @@
     }
     else if ([elementName isEqualToString:@"ingredient"]){
         [recipe addIngredient:ingredient];
+        currentElementValue = nil;
         
     }
     else if ([elementName isEqualToString:@"number"]) {
@@ -85,6 +85,7 @@
         NSNumber * myNumber = [f numberFromString:currentElementValue];
         
         [ingredient setValue:myNumber forKey:elementName];
+        currentElementValue = nil;
 
     }
     else if ([elementName isEqualToString:@"label"]) {
@@ -108,6 +109,7 @@
     }
     else if ([elementName isEqualToString:@"methodstep"]){
         [recipe addAMethod:method];
+        currentElementValue = nil;
     }
     else if ([elementName isEqualToString:@"method"]) {
         currentElementValue = nil;
@@ -134,6 +136,7 @@
         NSNumber * myNumber = [f numberFromString:currentElementValue];
         
         [tag setValue:myNumber forKey:elementName];
+                currentElementValue = nil;
         
     }
     else if ([elementName isEqualToString:@"baseingredient"]) {
