@@ -104,13 +104,7 @@
         // yumin modified
         //
         destVC.recipe = [recipes objectAtIndex:indexPath.row];
-        destVC.recipe.title = [[recipes objectAtIndex:indexPath.row] title];
-        destVC.recipe.image = [[recipes objectAtIndex:indexPath.row] image];
-        destVC.recipe.cooktime = [[recipes objectAtIndex:indexPath.row] cooktime];
-        destVC.recipe.preptime = [[recipes objectAtIndex:indexPath.row] preptime];
-        destVC.recipe.yield = [[recipes objectAtIndex:indexPath.row] yield];
-        destVC.recipe.difficulty = [[recipes objectAtIndex:indexPath.row] difficulty];
-        destVC.recipe.rating = [[recipes objectAtIndex:indexPath.row] rating];
+       
 
     }
 }
