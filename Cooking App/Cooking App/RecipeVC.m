@@ -67,8 +67,9 @@
 	
 	// NOTE: used as Example can be commented and uncomment above
 	//		 may need to add image URL to recipe object 
-	NSString *eggs = @"http://aww.ninemsn.com.au/img/food/cookbooks/eatingtogether/eggs.jpg";	
-	[self DownloadRecipeImage:eggs :imageView];
+//	NSString *eggs = @"http://aww.ninemsn.com.au/img/food/cookbooks/eatingtogether/eggs.jpg";
+	
+	[self DownloadRecipeImage:recipe.image :imageView];
     
     // recipe title
     UILabel *recipeTitle = (UILabel *)[cell viewWithTag:101];

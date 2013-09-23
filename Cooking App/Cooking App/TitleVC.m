@@ -117,7 +117,7 @@
 		for (int i = 0; i < myIngredients.count; i++) {
 				NSString *ingredient = [myIngredients objectAtIndex:i];
 				NSLog(@"%@",ingredient);
-				[ingredients addObject:[NSPredicate predicateWithFormat:@"ANY ingredients.title CONTAINS[cd] %@",ingredient]];
+				[ingredients addObject:[NSPredicate predicateWithFormat:@"ANY ingredients.label CONTAINS[cd] %@",ingredient]];
 		}
 	NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:ingredients];
 		NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
