@@ -124,6 +124,25 @@
 		myRecipies = [self fetchRecipeDataWithPredicate:predicates];
 }
 
+- (void)searchRecipesAuthor{
+	myRecipies = NULL;
+	
+	NSString *author = @"Author";
+	NSLog(@"%@",author);
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ingredients.label CONTAINS[cd] %@",author];
+	NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
+	myRecipies = [self fetchRecipeDataWithPredicate:predicates];
+
+}
+
+- (void)searchRecipesTime{
+	NSString *time = @"30";
+	NSLog(@"%@",time);
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ingredients.label CONTAINS[cd] %@",time];
+	NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
+	myRecipies = [self fetchRecipeDataWithPredicate:predicates];
+}
+
 /*
  * prepare segue for RecipeVC, passing over all recipies
  */

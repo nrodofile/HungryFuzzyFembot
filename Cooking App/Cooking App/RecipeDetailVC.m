@@ -27,7 +27,7 @@
 	
     self.title = recipe.title;
     recipeLabel.text = recipe.title;
-    image.image = [UIImage imageNamed:recipe.image];
+    [self DownloadRecipeImage:recipe.image];
     cooktime.text = recipe.cooktime;
     preptime.text = recipe.preptime;
     yield.text = recipe.yield;
@@ -52,6 +52,21 @@
         MethodVC *destinationView = segue.destinationViewController;        
         destinationView.methods = recipe.method;
     }
+}
+
+/*
+ * Downloads image asyncronously from url
+ */
+-(void)DownloadRecipeImage:(NSString *)imgUrl {
+	
+	//sets queue for download
+	dispatch_queue_t downloadQueue = dispatch_queue_create("Image", NULL);
+	
+	//all tasks downloaded on seperate thread
+	dispatch_async(downloadQueue, ^{
+		NSURL *url = [NSURL URLWithString:imgUrl];
+		image.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];// Downloads for a long time!
+	});
 }
 
 @end
