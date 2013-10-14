@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UITextField *myTextField;
 @property (strong, nonatomic) NSMutableArray *myIngredients;
-@property (strong, nonatomic) NSArray *myRecipies;
+@property (strong, nonatomic) NSArray *recipes;
 
 /*
  * Adds the string in myTextField to myIngredients array.

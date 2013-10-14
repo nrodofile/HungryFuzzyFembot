@@ -14,7 +14,7 @@
 
 @implementation TitleVC
 
-@synthesize myTableView, myIngredients, myTextField, myRecipies;
+@synthesize myTableView, myIngredients, myTextField, recipes;
 
 /*
  * This method runs when the screen loaded successfully.
@@ -109,39 +109,50 @@
 }
 
 /*
- * Gets all Recipes using ingredients
+ * Gets all Recipes using ingredients, Author and cooktime
  */
 - (void)searchRecipes{
-	NSMutableArray *ingredients = [NSMutableArray array];
-	myRecipies = NULL;
+	NSMutableArray *search = [NSMutableArray array];
+	recipes = NULL;
+	
+	if(myIngredients.count > 0){
 		for (int i = 0; i < myIngredients.count; i++) {
 				NSString *ingredient = [myIngredients objectAtIndex:i];
 				NSLog(@"%@",ingredient);
-				[ingredients addObject:[NSPredicate predicateWithFormat:@"ANY ingredients.label CONTAINS[cd] %@",ingredient]];
+				[search addObject:[NSPredicate predicateWithFormat:@"ANY ingredients.label CONTAINS[cd] %@",ingredient]];
 		}
-	NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:ingredients];
-		NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
-		myRecipies = [self fetchRecipeDataWithPredicate:predicates];
-}
-
-- (void)searchRecipesAuthor{
-	myRecipies = NULL;
+	}
 	
-	NSString *author = @"Author";
+	//NSString *author = @"Emeril";
+	NSString *author = NULL;
+	if(author != NULL){
+		NSLog(@"%@",author);
+		[search addObject:[NSPredicate predicateWithFormat:@"ANY Recipe.name CONTAINS[cd] %@",author]];
+	}
+	
+	//NSString *time = @"30";
+	NSString *time = NULL;
+	if(time != NULL){
+		NSLog(@"%@",time);
+		[search addObject:[NSPredicate predicateWithFormat:@"ANY Recipe.cooktime < %@",time]];
+	}
+	
+	NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:search];
+	NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
+	recipes = [self fetchRecipeDataWithPredicate:predicates];
+}
+/*
+- (void)searchRecipesAuthor{
+	recipes = NULL;
+	
+	NSString *author = @"Emeril Lagasse";
 	NSLog(@"%@",author);
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ingredients.label CONTAINS[cd] %@",author];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY Recipe.name CONTAINS[cd] %@",author];
 	NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
-	myRecipies = [self fetchRecipeDataWithPredicate:predicates];
+	recipes = [self fetchRecipeDataWithPredicate:predicates];
 
 }
-
-- (void)searchRecipesTime{
-	NSString *time = @"30";
-	NSLog(@"%@",time);
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY ingredients.label CONTAINS[cd] %@",time];
-	NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
-	myRecipies = [self fetchRecipeDataWithPredicate:predicates];
-}
+ */
 
 /*
  * prepare segue for RecipeVC, passing over all recipies
@@ -151,7 +162,7 @@
 	
 		if ([segue.identifier isEqual:@"getRecipies"]) {
 				[self searchRecipes];
-				transferViewController.recipes = myRecipies;
+				transferViewController.recipes = recipes;
 		};
 }
 
