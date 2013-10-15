@@ -10,7 +10,6 @@
 #import "Ingredient.h"
 #import "Method.h"
 #import "IngredientVC.h"
-#import "MethodVC.h"
 
 
 
@@ -20,19 +19,20 @@
 
 @implementation RecipeDetailVC
 
-@synthesize recipeLabel, recipe, image, cooktime, preptime, yield, difficulty, rating;
+@synthesize recipeLabel, recipe, image, cooktime, preptime, yield, difficulty, rating, author, ingredientsButton, methodsButton;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-    self.title = recipe.title;
-    recipeLabel.text = recipe.title;
     [self DownloadRecipeImage:recipe.image];
-    cooktime.text = recipe.cooktime;
-    preptime.text = recipe.preptime;
-    yield.text = recipe.yield;
-    difficulty.text = recipe.difficulty;
-    rating.text = recipe.rating;
+    
+    recipeLabel.text = recipe.title;
+    cooktime.text = [NSString stringWithFormat:@"Cook Time: %@ mins", recipe.cooktime];
+    preptime.text = [NSString stringWithFormat:@"Prep Time: %@ mins", recipe.preptime];
+    difficulty.text = [NSString stringWithFormat:@"Difficuty: %@", recipe.difficulty];
+    rating.text = [NSString stringWithFormat:@"Rating: %@/5", recipe.rating];
+    yield.text = [NSString stringWithFormat:@"Servings: %@", recipe.yield];
+    author.text = [NSString stringWithFormat:@"By %@", recipe.name];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,16 +41,26 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     //segue to recipetest view
-    if ([segue.identifier isEqualToString:@"recipeingredientSegue"]) {
-        IngredientVC *destinationView = segue.destinationViewController;        
-        destinationView.ingredients = recipe.ingredients;
+    if ([segue.identifier isEqualToString:@"ingredientsSegue"]) {
+        NSMutableString *ingredientText = [NSMutableString string];
+        
+        for (Ingredient *ingredient in recipe.ingredients) {
+            [ingredientText appendFormat:@"\n- %@", ingredient.label];
+        }
+        
+        IngredientVC *destinationView = segue.destinationViewController;
+        destinationView.text = ingredientText;
     }
-    
-    if ([segue.identifier isEqualToString:@"recipeMethodSegue"]) {
-        MethodVC *destinationView = segue.destinationViewController;        
-        destinationView.methods = recipe.method;
+    else if ([segue.identifier isEqualToString:@"methodsSegue"]) {
+        NSMutableString *methodText = [NSMutableString string];
+        
+        for (Method *method in recipe.method) {
+            [methodText appendFormat:@"\n- %@", method.step];
+        }
+        
+        IngredientVC *destinationView = segue.destinationViewController;
+        destinationView.text = methodText;
     }
 }
 

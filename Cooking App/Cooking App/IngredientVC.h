@@ -12,7 +12,7 @@
 @class Ingredient;
 
 @interface IngredientVC : UIViewController
-@property (weak, nonatomic) IBOutlet UITextView *ingredientTextView;
-@property (nonatomic, retain) NSOrderedSet *ingredients;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) NSString *text;
 
 @end

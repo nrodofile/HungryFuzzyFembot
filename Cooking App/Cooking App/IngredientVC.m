@@ -28,15 +28,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.textView.text = self.text;
     
     
-    NSMutableString *ingredientText = [NSMutableString string];
-        
-    for (Ingredient *ingredient in self.ingredients) {
-        [ingredientText appendFormat:@"\n- %@", ingredient.label];
-    }
-    
-    self.ingredientTextView.text = ingredientText;
 }
 
 - (void)didReceiveMemoryWarning

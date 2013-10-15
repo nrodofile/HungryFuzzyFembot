@@ -17,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *yield;
 @property (weak, nonatomic) IBOutlet UILabel *rating;
 @property (weak, nonatomic) IBOutlet UILabel *difficulty;
+@property (weak, nonatomic) IBOutlet UILabel *author;
 @property (nonatomic, strong) Recipe *recipe;
+@property (weak, nonatomic) IBOutlet UIButton *ingredientsButton;
+@property (weak, nonatomic) IBOutlet UIButton *methodsButton;
 
 @end
