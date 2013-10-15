@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *myTextField;
 @property (strong, nonatomic) NSMutableArray *myIngredients;
 @property (strong, nonatomic) NSArray *recipes;
+@property (strong, nonatomic) NSString *authorSearch;
+@property (strong, nonatomic) NSString *timeSearch;
 
 /*
  * Adds the string in myTextField to myIngredients array.

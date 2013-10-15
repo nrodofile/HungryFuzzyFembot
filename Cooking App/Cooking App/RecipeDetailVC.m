@@ -65,7 +65,10 @@
 	//all tasks downloaded on seperate thread
 	dispatch_async(downloadQueue, ^{
 		NSURL *url = [NSURL URLWithString:imgUrl];
-		image.image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];// Downloads for a long time!
+		UIImage * download = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];// Downloads for a long time!
+		dispatch_async(dispatch_get_main_queue(), ^ {
+			self.image.image = download;
+		});
 	});
 }
 

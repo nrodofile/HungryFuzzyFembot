@@ -14,7 +14,7 @@
 
 @implementation TitleVC
 
-@synthesize myTableView, myIngredients, myTextField, recipes;
+@synthesize myTableView, myIngredients, myTextField, recipes,authorSearch, timeSearch;
 
 /*
  * This method runs when the screen loaded successfully.
@@ -123,18 +123,19 @@
 		}
 	}
 	
-	//NSString *author = @"Emeril";
-	NSString *author = NULL;
-	if(author != NULL){
-		NSLog(@"%@",author);
-		[search addObject:[NSPredicate predicateWithFormat:@"ANY Recipe.name CONTAINS[cd] %@",author]];
+	authorSearch = @"Rachael Ray";
+	//NSString *author = NULL;
+	if(authorSearch != Nil){
+		NSLog(@"%@",authorSearch);
+		[search addObject:[NSPredicate predicateWithFormat:@"ANY name MATCHES[c] %@",authorSearch]];
+		
 	}
 	
-	//NSString *time = @"30";
-	NSString *time = NULL;
-	if(time != NULL){
-		NSLog(@"%@",time);
-		[search addObject:[NSPredicate predicateWithFormat:@"ANY Recipe.cooktime < %@",time]];
+	timeSearch = @"15";
+	//timeSearch = NULL;
+	if(timeSearch != Nil){
+		NSLog(@"%@",timeSearch);
+		[search addObject:[NSPredicate predicateWithFormat:@"ANY cooktime < %@",timeSearch]];
 	}
 	
 	NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:search];
