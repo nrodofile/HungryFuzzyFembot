@@ -13,50 +13,43 @@
 
 @end
 
+static NSString *CHEF_NAME = @"Chef Name";
+static NSString *PREP_TIME = @"Prep Time";
+static NSString *COOK_TIME = @"Cook Time";
+static NSString *DIETARY_NEEDS = @"Dietary Needs";
+
 @implementation advancedVC
 
-@synthesize advancedTableView;
+@synthesize advancedTableView, userChoices;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
 }
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // load array data
     chefArray = [NSArray arrayWithObjects:@"Chef 1", @"Chef 2", @"Chef 3", @"Chef 4", nil];
-    prepArray = [NSArray arrayWithObjects:@"< 10 mins", @"< 20 mins", @"< 30 mins", @"< 40 mins", nil];
-    cookArray = [NSArray arrayWithObjects:@"< 10 mins", @"< 20 mins", @"< 30 mins", @"< 40 mins", nil];
+    timeArray = [NSArray arrayWithObjects:@"< 10 mins", @"< 20 mins", @"< 30 mins", @"< 40 mins", nil];
     dietaryArray = [NSArray arrayWithObjects:@"Dietary 1", @"Dietary 2", @"Dietary 3", @"Dietary 4", nil];
     
-    advancedArray = [[NSMutableArray alloc] init];
-    [advancedArray addObject:@"Chef Name"];
-    [advancedArray addObject:@"Prep Time"];
-    [advancedArray addObject:@"Cook Time"];
-    [advancedArray addObject:@"Dietary Needs"];
-    [self setTitle:@"Advanced"];
+    // load dictionary of user choices
+    userChoices = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Any", CHEF_NAME, @"All", PREP_TIME,
+                                                               @"All", COOK_TIME, @"None", DIETARY_NEEDS, nil];
     
     [self.advancedTableView reloadData];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [userChoices count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [advancedArray count];
-    
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"DataCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -65,32 +58,34 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [advancedArray objectAtIndex:indexPath.row];
+    // do cell info
+    NSString *dictionaryKey = [[userChoices allKeys] objectAtIndex:indexPath.row];
+    
+    UILabel *title = (UILabel*)[cell viewWithTag:101];
+    title.text = dictionaryKey;
+    
+    UILabel *value = (UILabel*)[cell viewWithTag:100];
+    value.text = [userChoices objectForKey:dictionaryKey];
+    
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    advancedDetailVC * transferViewController = segue.destinationViewController;
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqual:@"getAdvanced"]) {
-        [self setTitle:@"Advanced"];
-        transferViewController.detailArray = advancedArray;
+        advancedDetailVC *transferViewController = segue.destinationViewController;
+        transferViewController.parent = self;
         
         NSIndexPath *indexPath = [advancedTableView indexPathForSelectedRow];
+        NSString *selectedCell = [[userChoices allKeys] objectAtIndex:indexPath.row];
         
-        if (indexPath.row == 0)
-        { transferViewController.detailArray = chefArray; }
-        
-        if (indexPath.row == 1)
-        { transferViewController.detailArray = prepArray; }
-        
-        if (indexPath.row == 2)
-        { transferViewController.detailArray = cookArray; }
-        
-        if (indexPath.row == 3)
-        { transferViewController.detailArray = dietaryArray; }
-        
-    };
+        // transfer array of selected cell
+        if ([selectedCell isEqualToString:CHEF_NAME])
+            transferViewController.detailArray = chefArray;
+        else if ([selectedCell isEqualToString:PREP_TIME] || [selectedCell isEqualToString:COOK_TIME])
+            transferViewController.detailArray = timeArray;
+        else if ([selectedCell isEqualToString:DIETARY_NEEDS])
+            transferViewController.detailArray = dietaryArray;
+    }
 }
 
 

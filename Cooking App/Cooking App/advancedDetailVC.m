@@ -7,6 +7,7 @@
 //
 
 #import "advancedDetailVC.h"
+#import "advancedVC.h"
 
 @interface advancedDetailVC ()
 
@@ -29,7 +30,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"%@",detailArray);
 }
 
 -  (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -56,6 +56,17 @@
     
     cell.textLabel.text = [detailArray objectAtIndex:indexPath.row];
     return cell;
+}
+
+//
+// On Cell select, pass back the text of the selected cell back to its respective dictionary
+//
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    [_parent.userChoices setObject:cell.textLabel.text forKey:@"Chef Name"];
+    
+    [_parent.advancedTableView reloadData];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

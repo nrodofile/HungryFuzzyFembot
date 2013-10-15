@@ -8,16 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface advancedVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
-{
-    
+@interface advancedVC : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSMutableArray *chefArray;
-    NSMutableArray *prepArray;
-    NSMutableArray *cookArray;
-    NSMutableArray *dietaryArray;    
-    NSMutableArray *advancedArray;
+    NSMutableArray *timeArray;
+    NSMutableArray *dietaryArray;
 }
+
 @property (weak, nonatomic) IBOutlet UITableView *advancedTableView;
+
+@property (strong, nonatomic) NSMutableDictionary *userChoices;
 
 
 @end

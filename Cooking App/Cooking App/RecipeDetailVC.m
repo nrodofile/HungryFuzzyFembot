@@ -42,7 +42,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     //segue to recipetest view
-    if ([segue.identifier isEqualToString:@"ingredientsSegue"]) {
+    if ([segue.identifier isEqualToString:@"ingredientSegue"]) {
         NSMutableString *ingredientText = [NSMutableString string];
         
         for (Ingredient *ingredient in recipe.ingredients) {
@@ -52,7 +52,7 @@
         IngredientVC *destinationView = segue.destinationViewController;
         destinationView.text = ingredientText;
     }
-    else if ([segue.identifier isEqualToString:@"methodsSegue"]) {
+    else if ([segue.identifier isEqualToString:@"methodSegue"]) {
         NSMutableString *methodText = [NSMutableString string];
         
         for (Method *method in recipe.method) {
@@ -75,7 +75,7 @@
 	//all tasks downloaded on seperate thread
 	dispatch_async(downloadQueue, ^{
 		NSURL *url = [NSURL URLWithString:imgUrl];
-		UIImage * download = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];// Downloads for a long time!
+		UIImage * download = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
 		dispatch_async(dispatch_get_main_queue(), ^ {
 			self.image.image = download;
 		});

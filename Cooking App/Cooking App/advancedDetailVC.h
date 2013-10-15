@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class advancedVC;
 
 @interface advancedDetailVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSMutableArray *detailArray;
+@property (strong, nonatomic) NSArray *detailArray;
+@property (strong, nonatomic) advancedVC *parent;
 
 @end
