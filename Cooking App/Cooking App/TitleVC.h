@@ -15,7 +15,8 @@
 @property (strong, nonatomic) NSMutableArray *myIngredients;
 @property (strong, nonatomic) NSArray *recipes;
 @property (strong, nonatomic) NSString *authorSearch;
-@property (strong, nonatomic) NSString *timeSearch;
+@property (strong, nonatomic) NSString *cookTimeSearch;
+@property (strong, nonatomic) NSString *prepTimeSearch;
 
 /*
  * Adds the string in myTextField to myIngredients array.
