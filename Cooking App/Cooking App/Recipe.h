@@ -2,14 +2,14 @@
 //  Recipe.h
 //  Cooking App
 //
-//  Created by Stuart Stirling on 17/09/13.
+//  Created by Stuart Stirling on 16/10/13.
 //  Copyright (c) 2013 Tristan. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Ingredient, IngredientTags, Method;
+@class Ingredient, IngredientTags, Method, Nutrition;
 
 @interface Recipe : NSManagedObject
 
@@ -24,9 +24,11 @@
 @property (nonatomic, retain) NSString * recipeid;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * yield;
+@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSOrderedSet *ingredients;
-@property (nonatomic, retain) NSOrderedSet *method;
 @property (nonatomic, retain) NSSet *ingredienttags;
+@property (nonatomic, retain) NSOrderedSet *method;
+@property (nonatomic, retain) NSSet *nutrition;
 @end
 
 @interface Recipe (CoreDataGeneratedAccessors)
@@ -41,6 +43,11 @@
 - (void)removeIngredientsObject:(Ingredient *)value;
 - (void)addIngredients:(NSOrderedSet *)values;
 - (void)removeIngredients:(NSOrderedSet *)values;
+- (void)addIngredienttagsObject:(IngredientTags *)value;
+- (void)removeIngredienttagsObject:(IngredientTags *)value;
+- (void)addIngredienttags:(NSSet *)values;
+- (void)removeIngredienttags:(NSSet *)values;
+
 - (void)insertObject:(Method *)value inMethodAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromMethodAtIndex:(NSUInteger)idx;
 - (void)insertMethod:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
@@ -51,12 +58,11 @@
 - (void)removeMethodObject:(Method *)value;
 - (void)addMethod:(NSOrderedSet *)values;
 - (void)removeMethod:(NSOrderedSet *)values;
-- (void)addIngredienttagsObject:(IngredientTags *)value;
-- (void)removeIngredienttagsObject:(IngredientTags *)value;
-- (void)addIngredienttags:(NSSet *)values;
-- (void)removeIngredienttags:(NSSet *)values;
+- (void)addNutritionObject:(Nutrition *)value;
+- (void)removeNutritionObject:(Nutrition *)value;
+- (void)addNutrition:(NSSet *)values;
+- (void)removeNutrition:(NSSet *)values;
+
 -(void)addIngredient: (Ingredient *) values;
 -(void)addAMethod: (Method *) values;
-
-
 @end

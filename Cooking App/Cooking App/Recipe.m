@@ -2,7 +2,7 @@
 //  Recipe.m
 //  Cooking App
 //
-//  Created by Stuart Stirling on 17/09/13.
+//  Created by Stuart Stirling on 16/10/13.
 //  Copyright (c) 2013 Tristan. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 #import "Ingredient.h"
 #import "IngredientTags.h"
 #import "Method.h"
+#import "Nutrition.h"
 
 
 @implementation Recipe
@@ -26,8 +27,12 @@
 @dynamic title;
 @dynamic yield;
 @dynamic ingredients;
-@dynamic method;
 @dynamic ingredienttags;
+@dynamic method;
+@dynamic nutrition;
+@dynamic url;
+
+
 
 -(void)addIngredient:(Ingredient *)values {
     NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.ingredients];

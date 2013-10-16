@@ -1,14 +1,13 @@
 //
 //  AppDelegate.m
-//  asdasd
+//  XMLParser
 //
-//  Created by Tristan on 24/08/13.
+//  Created by Tristan on 16/10/13.
 //  Copyright (c) 2013 Tristan. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "Recipe.h"
-#import "Ingredient.h"
+
 #import "Parser.h"
 
 @implementation AppDelegate
@@ -16,52 +15,28 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-@synthesize listArray;
 
-#pragma mark - Core Data add, fetch methods
-
-// begins xml parsing
-- (void)XMLparse {
-    // init xmlparser with file
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"foodnetwork.xml"];
-    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData: data];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // finds and loads foodnetwork.xml file
+    NSURL *pathURL = [[NSBundle mainBundle] URLForResource:@"foodnetwork_v6" withExtension:@"xml"];
+    NSString *path = [pathURL path];
+    NSData *data = [[NSFileManager defaultManager] contentsAtPath:path];
     
-    // begin parsing data
-    Parser *theParser = [[Parser alloc] initParser];
-    [xmlParser setDelegate:theParser];
-    [xmlParser parse];
+    // sets the NSXMLParser delegate
+    NSXMLParser *nsXmlParser = [[NSXMLParser alloc] initWithData:data];
+    Parser *parser = [[Parser alloc] initParser];
+    [nsXmlParser setDelegate:parser];
     
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Problem saving: %@", [error localizedDescription]);
-    } else {
-        NSLog(@"Core Data Count - %u recipes", theParser.recipeArray.count);
-    }
-}
-
-// returns count of recipe objects in datastore
-- (NSInteger)countCoreData {
-    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
-    NSArray *recipes = [self.managedObjectContext executeFetchRequest:request error:nil];
+    // begin parsing
+    [nsXmlParser parse];
     
-    return recipes.count;
-}
-
-#pragma mark - AppDelegate methods
-
-/* 
- * After finishing loading, create some Core Data objects and insert them to Core Data.
- */
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // init local data recipes
-    if ([self countCoreData] == 0) {
-        [self XMLparse];
-    }
     
+    
+    NSLog(@"Parser Complete...");
     return YES;
 }
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -70,7 +45,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
@@ -96,11 +71,11 @@
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+             // Replace this implementation with code to handle the error appropriately.
+             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
-        }
+        } 
     }
 }
 
@@ -142,16 +117,7 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"RecipeDb.sqlite"];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
-        NSURL *preloadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"RecipeDb" ofType:@"sqlite"]];
-        NSError *err = nil;
-        
-        if (![[NSFileManager defaultManager] copyItemAtURL:preloadURL toURL:storeURL error:&err]) {
-            NSLog(@"Failed to copy preloaded data");
-        }
-    }
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"XMLParser.sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
@@ -159,7 +125,7 @@
         /*
          Replace this implementation with code to handle the error appropriately.
          
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
          
          Typical reasons for an error here include:
          * The persistent store is not accessible;
@@ -181,7 +147,7 @@
          */
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
-    }
+    }    
     
     return _persistentStoreCoordinator;
 }

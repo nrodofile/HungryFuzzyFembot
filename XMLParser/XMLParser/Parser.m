@@ -72,12 +72,26 @@
 -(void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
     if ([elementName isEqualToString:@"foodnetwork"]) {
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"Error : %@", error);
+        }
         return;
     }
     
     if ([elementName isEqualToString:@"recipe"]) {
         [recipeArray addObject:recipe];
         recipe = nil;
+        
+        if (recipeArray.count > 1000) {
+            NSError *error;
+            if (![context save:&error]) {
+                NSLog(@"Error : %@", error);
+            }
+            
+            NSLog(@"%u", recipeArray.count);
+            [recipeArray removeAllObjects];
+        }
     }
     else if ([elementName isEqualToString:@"time"]) {
         currentElementValue = nil;
@@ -169,6 +183,8 @@
         currentElementValue = nil;
 
     }
+    
+    
 }
 
 @end
