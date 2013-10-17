@@ -11,7 +11,9 @@
 
 @interface advancedDetailVC : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSArray *detailArray;
+@property (weak, nonatomic) NSArray *detailArray;
+@property (weak, nonatomic) NSString *key;
+
 @property (strong, nonatomic) advancedVC *parent;
 
 @end

@@ -10,23 +10,26 @@
 #import "advancedDetailVC.h"
 #import "AppDelegate.h"
 
-@interface advancedVC ()
-
-@end
-
+// dictionary keys
 static NSString *CHEF_NAME = @"Chef Name";
 static NSString *PREP_TIME = @"Prep Time";
 static NSString *COOK_TIME = @"Cook Time";
 static NSString *DIETARY_NEEDS = @"Dietary Needs";
 
-@implementation advancedVC
+@interface advancedVC () {
+    NSManagedObjectContext *context;
+}
+@end
 
+@implementation advancedVC
 @synthesize advancedTableView, userChoices;
+
+#pragma mark - 
+#pragma mark - Initialise and Load
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -34,46 +37,56 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    context = [appDelegate managedObjectContext];
+    
     // load array data
-    chefArray = [[NSMutableArray alloc] init];
+    chefArray = [self getValuesFromCoreData:@"Recipe" searchProperty:@"name"];
+    dietaryArray = [self getValuesFromCoreData:@"Nutrition" searchProperty:@"label"];
     timeArray = [NSArray arrayWithObjects:@"< 10 mins", @"< 20 mins", @"< 30 mins", @"< 40 mins", nil];
-    dietaryArray = [NSArray arrayWithObjects:@"Dietary 1", @"Dietary 2", @"Dietary 3", @"Dietary 4", nil];
     
     // load dictionary of user choices
-    userChoices = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Any", CHEF_NAME, @"All", PREP_TIME,
-                                                               @"All", COOK_TIME, @"None", DIETARY_NEEDS, nil];
-    
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
+    userChoices = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                   @"Any", CHEF_NAME, @"All", PREP_TIME, @"All", COOK_TIME, @"None", DIETARY_NEEDS, nil];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+ * Loads the chefArray with all chefs names in this application
+ */
+- (NSArray *)getValuesFromCoreData:(NSString *)entityName searchProperty:(NSString*)property {
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
     
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
     [request setResultType:NSDictionaryResultType];
     [request setReturnsDistinctResults:YES];
-    [request setPropertiesToFetch:@[@"name"]];
+    [request setPropertiesToFetch:@[property]];
     
     NSError *error;
-
     NSArray *objects = [context executeFetchRequest:request error:&error];
+    
+    if (objects == nil)
+        return [[NSArray alloc] init];
+    
+    
+    // nsdictionary to nsarray
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    if (objects == nil) {
-        // errorr
-        NSLog(@"ERROR");
-    } else {
-        for (NSDictionary *d in objects) {
-            [tempArray addObject:[d objectForKey:@"name"]];
-        }
-        
-        chefArray = [tempArray sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    for (NSDictionary *d in objects) {
+        if ([d objectForKey:property] != nil)
+            [tempArray addObject:[d objectForKey:property]];
     }
     
-    
-
-    [self.advancedTableView reloadData];
+    // return sorted array
+    return [tempArray sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
+
+#pragma mark - 
+#pragma mark - TableView delegate methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [userChoices count];
@@ -100,29 +113,29 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
     return cell;
 }
 
+#pragma mark - 
+#pragma mark - Navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqual:@"getAdvanced"]) {
-        advancedDetailVC *transferViewController = segue.destinationViewController;
-        transferViewController.parent = self;
-        
-        NSIndexPath *indexPath = [advancedTableView indexPathForSelectedRow];
-        NSString *selectedCell = [[userChoices allKeys] objectAtIndex:indexPath.row];
-        
-        // transfer array of selected cell
-        if ([selectedCell isEqualToString:CHEF_NAME])
-            transferViewController.detailArray = chefArray;
-        else if ([selectedCell isEqualToString:PREP_TIME] || [selectedCell isEqualToString:COOK_TIME])
-            transferViewController.detailArray = timeArray;
-        else if ([selectedCell isEqualToString:DIETARY_NEEDS])
-            transferViewController.detailArray = dietaryArray;
-    }
+    advancedDetailVC *transferViewController = segue.destinationViewController;
+    transferViewController.parent = self;
+    
+    NSIndexPath *indexPath = [advancedTableView indexPathForSelectedRow];
+    NSString *selectedCell = [[userChoices allKeys] objectAtIndex:indexPath.row];
+    
+    // transfer array of selected cell
+    if ([selectedCell isEqualToString:CHEF_NAME])
+        transferViewController.detailArray = chefArray;
+    else if ([selectedCell isEqualToString:PREP_TIME] || [selectedCell isEqualToString:COOK_TIME])
+        transferViewController.detailArray = timeArray;
+    else if ([selectedCell isEqualToString:DIETARY_NEEDS])
+        transferViewController.detailArray = dietaryArray;
+    
+    transferViewController.key = selectedCell;
+    transferViewController.title = selectedCell;
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end

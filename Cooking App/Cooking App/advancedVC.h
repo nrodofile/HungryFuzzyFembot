@@ -11,7 +11,7 @@
 @interface advancedVC : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *chefArray;
     NSMutableArray *timeArray;
-    NSMutableArray *dietaryArray;
+    NSArray *dietaryArray;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *advancedTableView;
