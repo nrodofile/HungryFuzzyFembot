@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface advancedVC : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    NSMutableArray *chefArray;
+    NSArray *chefArray;
     NSMutableArray *timeArray;
     NSMutableArray *dietaryArray;
 }

@@ -8,6 +8,7 @@
 
 #import "advancedVC.h"
 #import "advancedDetailVC.h"
+#import "AppDelegate.h"
 
 @interface advancedVC ()
 
@@ -34,7 +35,7 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
     [super viewDidLoad];
     
     // load array data
-    chefArray = [NSArray arrayWithObjects:@"Chef 1", @"Chef 2", @"Chef 3", @"Chef 4", nil];
+    chefArray = [[NSMutableArray alloc] init];
     timeArray = [NSArray arrayWithObjects:@"< 10 mins", @"< 20 mins", @"< 30 mins", @"< 40 mins", nil];
     dietaryArray = [NSArray arrayWithObjects:@"Dietary 1", @"Dietary 2", @"Dietary 3", @"Dietary 4", nil];
     
@@ -42,6 +43,35 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
     userChoices = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"Any", CHEF_NAME, @"All", PREP_TIME,
                                                                @"All", COOK_TIME, @"None", DIETARY_NEEDS, nil];
     
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recipe" inManagedObjectContext:context];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    [request setResultType:NSDictionaryResultType];
+    [request setReturnsDistinctResults:YES];
+    [request setPropertiesToFetch:@[@"name"]];
+    
+    NSError *error;
+
+    NSArray *objects = [context executeFetchRequest:request error:&error];
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    if (objects == nil) {
+        // errorr
+        NSLog(@"ERROR");
+    } else {
+        for (NSDictionary *d in objects) {
+            [tempArray addObject:[d objectForKey:@"name"]];
+        }
+        
+        chefArray = [tempArray sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    }
+    
+    
+
     [self.advancedTableView reloadData];
 }
 
