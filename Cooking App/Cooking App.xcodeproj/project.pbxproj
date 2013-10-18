@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		220C73E21811502200A7C965 /* RecipeDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 220C73E11811502200A7C965 /* RecipeDb.sqlite */; };
+		6A0AA2E218117F7F0090547C /* CoreDataRecipeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AA2E118117F7F0090547C /* CoreDataRecipeTest.m */; };
+		6A0AA2E318117FA80090547C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA4E50617C85D800035694D /* CoreData.framework */; };
 		6A0F485F180ED40C004AED5F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0F485D180ED40B004AED5F /* Default.png */; };
 		6A0F4860180ED40C004AED5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0F485E180ED40C004AED5F /* Default@2x.png */; };
 		6A219C4D17CC548D00E5545D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A219C4C17CC548D00E5545D /* ViewController.m */; };
@@ -25,7 +27,6 @@
 		6AD91E2317BA49EE007A0DF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD91DFD17BA49EC007A0DF5 /* UIKit.framework */; };
 		6AD91E2417BA49EE007A0DF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD91DFF17BA49EC007A0DF5 /* Foundation.framework */; };
 		6AD91E2C17BA49EE007A0DF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AD91E2A17BA49EE007A0DF5 /* InfoPlist.strings */; };
-		6AD91E2F17BA49EE007A0DF5 /* Cooking_AppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD91E2E17BA49EE007A0DF5 /* Cooking_AppTests.m */; };
 		6AD99DEB17C255B1008AAA52 /* RecipeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD99DEA17C255B1008AAA52 /* RecipeVC.m */; };
 		6AD99DEE17C2599B008AAA52 /* RecipeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */; };
 		6AFF2A52180EC07300DD3E78 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2A4F180EC07300DD3E78 /* Recipe.m */; };
@@ -52,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		220C73E11811502200A7C965 /* RecipeDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipeDb.sqlite; sourceTree = "<group>"; };
+		6A0AA2E018117F7F0090547C /* CoreDataRecipeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataRecipeTest.h; path = "../../../HungryFuzzyFembot 2/Cooking App/Cooking AppTests/CoreDataRecipeTest.h"; sourceTree = "<group>"; };
+		6A0AA2E118117F7F0090547C /* CoreDataRecipeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataRecipeTest.m; path = "../../../HungryFuzzyFembot 2/Cooking App/Cooking AppTests/CoreDataRecipeTest.m"; sourceTree = "<group>"; };
 		6A0F485D180ED40B004AED5F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6A0F485E180ED40C004AED5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A219C4B17CC548D00E5545D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -75,8 +78,6 @@
 		6AD91E2117BA49EE007A0DF5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6AD91E2917BA49EE007A0DF5 /* Cooking AppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cooking AppTests-Info.plist"; sourceTree = "<group>"; };
 		6AD91E2B17BA49EE007A0DF5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6AD91E2D17BA49EE007A0DF5 /* Cooking_AppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cooking_AppTests.h; sourceTree = "<group>"; };
-		6AD91E2E17BA49EE007A0DF5 /* Cooking_AppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cooking_AppTests.m; sourceTree = "<group>"; };
 		6AD99DE917C255B1008AAA52 /* RecipeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeVC.h; sourceTree = "<group>"; };
 		6AD99DEA17C255B1008AAA52 /* RecipeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeVC.m; sourceTree = "<group>"; };
 		6AD99DEC17C2599B008AAA52 /* RecipeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailVC.h; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A0AA2E318117FA80090547C /* CoreData.framework in Frameworks */,
 				6AD91E2217BA49EE007A0DF5 /* SenTestingKit.framework in Frameworks */,
 				6AD91E2317BA49EE007A0DF5 /* UIKit.framework in Frameworks */,
 				6AD91E2417BA49EE007A0DF5 /* Foundation.framework in Frameworks */,
@@ -230,8 +232,8 @@
 		6AD91E2717BA49EE007A0DF5 /* Cooking AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				6AD91E2D17BA49EE007A0DF5 /* Cooking_AppTests.h */,
-				6AD91E2E17BA49EE007A0DF5 /* Cooking_AppTests.m */,
+				6A0AA2E018117F7F0090547C /* CoreDataRecipeTest.h */,
+				6A0AA2E118117F7F0090547C /* CoreDataRecipeTest.m */,
 				6AD91E2817BA49EE007A0DF5 /* Supporting Files */,
 			);
 			path = "Cooking AppTests";
@@ -380,7 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AD91E2F17BA49EE007A0DF5 /* Cooking_AppTests.m in Sources */,
+				6A0AA2E218117F7F0090547C /* CoreDataRecipeTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
