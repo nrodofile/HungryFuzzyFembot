@@ -7,10 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "advancedVC.h"
 #import "AppDelegate.h"
 #import "Recipe.h"
 
-@interface RecipeVC : ViewController <UITableViewDelegate, UITableViewDataSource>
+@interface RecipeVC : ViewController <UITableViewDelegate, UITableViewDataSource> 
 
 @property (strong, nonatomic) NSArray *recipes;
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;

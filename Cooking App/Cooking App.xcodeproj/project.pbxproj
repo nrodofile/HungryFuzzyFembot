@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220C73E21811502200A7C965 /* RecipeDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 220C73E11811502200A7C965 /* RecipeDb.sqlite */; };
 		6A0F485F180ED40C004AED5F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0F485D180ED40B004AED5F /* Default.png */; };
 		6A0F4860180ED40C004AED5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0F485E180ED40C004AED5F /* Default@2x.png */; };
 		6A219C4D17CC548D00E5545D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A219C4C17CC548D00E5545D /* ViewController.m */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		220C73E11811502200A7C965 /* RecipeDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipeDb.sqlite; sourceTree = "<group>"; };
 		6A0F485D180ED40B004AED5F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6A0F485E180ED40C004AED5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A219C4B17CC548D00E5545D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		6AD91E0317BA49ED007A0DF5 /* Cooking App */ = {
 			isa = PBXGroup;
 			children = (
+				220C73E11811502200A7C965 /* RecipeDb.sqlite */,
 				6AFF2A57180EC0AF00DD3E78 /* Parser.h */,
 				6AFF2A58180EC0AF00DD3E78 /* Parser.m */,
 				6AD91E0C17BA49ED007A0DF5 /* AppDelegate.h */,
@@ -319,6 +322,7 @@
 				6A0F4860180ED40C004AED5F /* Default@2x.png in Resources */,
 				6AD91E1717BA49ED007A0DF5 /* MainStoryboard.storyboard in Resources */,
 				6A0F485F180ED40C004AED5F /* Default.png in Resources */,
+				220C73E21811502200A7C965 /* RecipeDb.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

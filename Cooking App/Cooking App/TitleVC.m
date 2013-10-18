@@ -9,6 +9,7 @@
 #import "TitleVC.h"
 #import "RecipeVC.h"
 
+
 @interface TitleVC ()
 @end
 
@@ -38,6 +39,7 @@
     gestureRecognizer.cancelsTouchesInView = NO;
     
     [myTableView addGestureRecognizer:gestureRecognizer];
+	
 }
 
 #pragma mark - event methods
@@ -119,7 +121,7 @@
 		for (int i = 0; i < myIngredients.count; i++) {
 				NSString *ingredient = [myIngredients objectAtIndex:i];
 				NSLog(@"%@",ingredient);
-				[search addObject:[NSPredicate predicateWithFormat:@"ANY ingredients.label CONTAINS[cd] %@",ingredient]];
+				[search addObject:[NSPredicate predicateWithFormat:@"ANY ingredienttags.baseingredient CONTAINS[cd] %@",ingredient]];
 		}
 	}
 	

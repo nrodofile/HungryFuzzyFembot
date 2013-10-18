@@ -22,7 +22,7 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
 @end
 
 @implementation advancedVC
-@synthesize advancedTableView, userChoices;
+@synthesize advancedTableView, userChoices, selectedValueDelegate;
 
 #pragma mark - 
 #pragma mark - Initialise and Load
@@ -109,6 +109,16 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
     
     UILabel *value = (UILabel*)[cell viewWithTag:100];
     value.text = [userChoices objectForKey:dictionaryKey];
+	
+	if (dictionaryKey == CHEF_NAME) {
+		advChef = value.text;
+	} else if (dictionaryKey == PREP_TIME) {
+		advPrepTime = value.text;
+	} else if (dictionaryKey == COOK_TIME) {
+		advCookTime = value.text;
+	} else if (dictionaryKey == DIETARY_NEEDS) {
+		advDietary = value.text;
+	}
     
     return cell;
 }
@@ -133,7 +143,10 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
     
     transferViewController.key = selectedCell;
     transferViewController.title = selectedCell;
+	
+	
 }
+
 
 
 

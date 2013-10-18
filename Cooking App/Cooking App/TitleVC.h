@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "advancedVC.h"
 
 @interface TitleVC : ViewController <UITableViewDataSource, UITableViewDelegate>
 
@@ -17,6 +18,8 @@
 @property (strong, nonatomic) NSString *authorSearch;
 @property (strong, nonatomic) NSString *cookTimeSearch;
 @property (strong, nonatomic) NSString *prepTimeSearch;
+
+
 
 /*
  * Adds the string in myTextField to myIngredients array.
