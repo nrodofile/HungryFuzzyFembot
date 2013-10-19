@@ -9,13 +9,18 @@
 #import "TitleVC.h"
 #import "RecipeVC.h"
 
+// dictionary keys
+static NSString *CHEF_NAME = @"Chef Name";
+static NSString *PREP_TIME = @"Prep Time";
+static NSString *COOK_TIME = @"Cook Time";
+static NSString *DIETARY_NEEDS = @"Dietary Needs";
 
 @interface TitleVC ()
 @end
 
 @implementation TitleVC
 
-@synthesize myTableView, myIngredients, myTextField, recipes,authorSearch, prepTimeSearch, cookTimeSearch;
+@synthesize myTableView, myIngredients, myTextField, recipes,authorSearch, prepTimeSearch, cookTimeSearch, dietarySearch, userChoices;
 
 /*
  * This method runs when the screen loaded successfully.
@@ -39,6 +44,10 @@
     gestureRecognizer.cancelsTouchesInView = NO;
     
     [myTableView addGestureRecognizer:gestureRecognizer];
+	
+	// load dictionary of user choices
+    userChoices = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                   @"Any", CHEF_NAME, @"All", PREP_TIME, @"All", COOK_TIME, @"None", DIETARY_NEEDS, nil];
 	
 }
 
@@ -75,7 +84,7 @@
 #pragma mark - tableView delegate methods
 
 /*
- * Returns the number of elements in myIngredients NSMutableArray. 
+ * Returns the number of elements in myIngredients NSMutableArray.
  */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return myIngredients.count;
@@ -119,9 +128,9 @@
 	
 	if(myIngredients.count > 0){
 		for (int i = 0; i < myIngredients.count; i++) {
-				NSString *ingredient = [myIngredients objectAtIndex:i];
-				NSLog(@"%@",ingredient);
-				[search addObject:[NSPredicate predicateWithFormat:@"ANY ingredienttags.baseingredient CONTAINS[cd] %@",ingredient]];
+			NSString *ingredient = [myIngredients objectAtIndex:i];
+			NSLog(@"%@",ingredient);
+			[search addObject:[NSPredicate predicateWithFormat:@"ANY ingredienttags.baseingredient CONTAINS[cd] %@",ingredient]];
 		}
 	}
 	
@@ -133,36 +142,33 @@
 		
 	}
 	
-	//cookTimeSearch = @"15";
+	//	NSString *cookTime = @"15";
 	//timeSearch = NULL;
 	if(cookTimeSearch != Nil){
+		//	if(cookTime != Nil){
 		NSLog(@"%@",cookTimeSearch);
-		[search addObject:[NSPredicate predicateWithFormat:@"ANY cooktime < %@",cookTimeSearch]];
+		NSString *cookTime = [cookTimeSearch substringFromIndex:2];
+		cookTime = [cookTime substringToIndex:[cookTime length]-5];
+		NSLog(@"%@",cookTime);
+		[search addObject:[NSPredicate predicateWithFormat:@"ANY cooktime < %@",cookTime]];
 	}
 	
 	//timeSearch = @"15";
 	//timeSearch = NULL;
 	if(prepTimeSearch != Nil){
 		NSLog(@"%@",prepTimeSearch);
-		[search addObject:[NSPredicate predicateWithFormat:@"ANY cooktime < %@",prepTimeSearch]];
+		NSString *prepTime = [prepTimeSearch substringFromIndex:2];
+		prepTime = [prepTime substringToIndex:[prepTime length]-5];
+		
+		NSLog(@"%@",prepTime);
+		
+		[search addObject:[NSPredicate predicateWithFormat:@"ANY preptime < %@",prepTime]];
 	}
 	
 	NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:search];
 	NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
 	recipes = [self fetchRecipeDataWithPredicate:predicates];
 }
-/*
-- (void)searchRecipesAuthor{
-	recipes = NULL;
-	
-	NSString *author = @"Emeril Lagasse";
-	NSLog(@"%@",author);
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY Recipe.name CONTAINS[cd] %@",author];
-	NSArray *predicates = [[NSArray alloc] initWithObjects:predicate, nil];
-	recipes = [self fetchRecipeDataWithPredicate:predicates];
-
-}
- */
 
 /*
  * prepare segue for RecipeVC, passing over all recipies
@@ -170,10 +176,24 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 	RecipeVC * transferViewController = segue.destinationViewController;
 	
-		if ([segue.identifier isEqual:@"getRecipies"]) {
-				[self searchRecipes];
-				transferViewController.recipes = recipes;
-		};
+	if ([segue.identifier isEqual:@"getRecipies"]) {
+		[self searchRecipes];
+		transferViewController.recipes = recipes;
+		
+	} else if ([segue.identifier isEqual:@"advancedClassPush"]) {
+		
+		advancedVC *transferViewController = segue.destinationViewController;
+		transferViewController.parent = self;
+		transferViewController.advChef = authorSearch;
+		transferViewController.advCookTime = cookTimeSearch;
+		transferViewController.advDietary = dietarySearch;
+		transferViewController.advPrepTime = prepTimeSearch;
+		
+	}
+}
+
+-(void)advSearchItems:(NSString *)chef{
+	authorSearch = chef;
 }
 
 @end

@@ -7,32 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TitleVC.h"
 
-// protocol declaration
-@protocol myDelegate
-
-@optional
--(void)selectedValueIs:(NSString *)value;
-
-// set it as the property
-
-@end
+@class TitleVC;
 
 @interface advancedVC : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     NSArray *chefArray;
     NSMutableArray *timeArray;
     NSArray *dietaryArray;
-	NSString *advChef;
-	NSString *advPrepTime;
-	NSString *advCookTime;
-	NSString *advDietary;
-	
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *advancedTableView;
 
 @property (strong, nonatomic) NSMutableDictionary *userChoices;
 
-@property (nonatomic, assign) id<myDelegate> selectedValueDelegate;
+@property TitleVC *parent;
+
+@property NSString *advChef;
+@property NSString *advPrepTime;
+@property NSString *advCookTime;
+@property NSString *advDietary;
+
+- (IBAction)clickReset:(id)sender;
 
 @end

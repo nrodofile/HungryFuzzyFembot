@@ -15,6 +15,8 @@ static NSString *CHEF_NAME = @"Chef Name";
 static NSString *PREP_TIME = @"Prep Time";
 static NSString *COOK_TIME = @"Cook Time";
 static NSString *DIETARY_NEEDS = @"Dietary Needs";
+static NSString *DEFAULT_ALL = @"Any";
+static NSString *DEFAULT_NONE = @"None";
 
 @interface advancedVC () {
     NSManagedObjectContext *context;
@@ -22,9 +24,9 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
 @end
 
 @implementation advancedVC
-@synthesize advancedTableView, userChoices, selectedValueDelegate;
+@synthesize advancedTableView, userChoices, parent, advChef, advCookTime, advDietary, advPrepTime;
 
-#pragma mark - 
+#pragma mark -
 #pragma mark - Initialise and Load
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -43,11 +45,29 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
     // load array data
     chefArray = [self getValuesFromCoreData:@"Recipe" searchProperty:@"name"];
     dietaryArray = [self getValuesFromCoreData:@"Nutrition" searchProperty:@"label"];
-    timeArray = [NSArray arrayWithObjects:@"< 10 mins", @"< 20 mins", @"< 30 mins", @"< 40 mins", nil];
+    timeArray = [NSArray arrayWithObjects:DEFAULT_ALL, @"< 10 mins", @"< 20 mins", @"< 30 mins", @"< 40 mins", nil];
     
     // load dictionary of user choices
-    userChoices = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                   @"Any", CHEF_NAME, @"All", PREP_TIME, @"All", COOK_TIME, @"None", DIETARY_NEEDS, nil];
+	if (userChoices == nil) {
+		userChoices = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+					   DEFAULT_ALL, CHEF_NAME, DEFAULT_ALL, PREP_TIME, DEFAULT_ALL, COOK_TIME, DEFAULT_NONE, DIETARY_NEEDS, nil];
+	}else{
+		userChoices = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+					   advChef, CHEF_NAME, advPrepTime, PREP_TIME, advCookTime, COOK_TIME, advDietary, DIETARY_NEEDS, nil];
+	}
+	
+	if (advChef != nil) {
+		[userChoices setObject:advChef forKey:CHEF_NAME];
+	}
+	if (advPrepTime != nil) {
+		[userChoices setObject:advPrepTime forKey:PREP_TIME];
+	}
+	if (advCookTime != nil) {
+		[userChoices setObject:advCookTime forKey:COOK_TIME];
+	}
+	if (advDietary != nil) {
+		[userChoices setObject:advDietary forKey:DIETARY_NEEDS];
+	}
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,7 +105,7 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
     return [tempArray sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark - TableView delegate methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -112,18 +132,41 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
 	
 	if (dictionaryKey == CHEF_NAME) {
 		advChef = value.text;
-	} else if (dictionaryKey == PREP_TIME) {
+		if ([value.text  isEqualToString:DEFAULT_ALL]) {
+			parent.authorSearch = nil;
+		}else {
+			parent.authorSearch = value.text;
+		}
+		
+	} else if (dictionaryKey == PREP_TIME){
 		advPrepTime = value.text;
-	} else if (dictionaryKey == COOK_TIME) {
+		if ([value.text isEqualToString:DEFAULT_ALL]) {
+			parent.prepTimeSearch = nil;
+		}else {
+			parent.prepTimeSearch = value.text;
+		}
+		
+	} else if (dictionaryKey == COOK_TIME){
 		advCookTime = value.text;
-	} else if (dictionaryKey == DIETARY_NEEDS) {
+		if ([value.text isEqualToString:DEFAULT_ALL]) {
+			parent.cookTimeSearch = nil;
+		}else {
+			parent.cookTimeSearch = value.text;
+		}
+		
+	} else if (dictionaryKey == DIETARY_NEEDS){
 		advDietary = value.text;
+		if ([value.text isEqualToString:DEFAULT_NONE]){
+			parent.dietarySearch = nil;
+		}else {
+			parent.dietarySearch = value.text;
+		}
 	}
-    
+	
     return cell;
 }
 
-#pragma mark - 
+#pragma mark -
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -144,7 +187,28 @@ static NSString *DIETARY_NEEDS = @"Dietary Needs";
     transferViewController.key = selectedCell;
     transferViewController.title = selectedCell;
 	
-	
+}
+
+// reset search options
+-(void)resetView
+{
+    userChoices = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+				   DEFAULT_ALL, CHEF_NAME, DEFAULT_ALL, PREP_TIME, DEFAULT_ALL, COOK_TIME, DEFAULT_NONE, DIETARY_NEEDS, nil];
+	advChef = nil;
+	advPrepTime = nil;
+	advCookTime = nil;
+	advDietary = nil;
+    [self.advancedTableView reloadData];
+}
+
+-(void)viewWillAppear
+{
+    [self resetView];
+}
+
+- (IBAction)clickReset:(id)sender
+{
+    [self resetView];
 }
 
 

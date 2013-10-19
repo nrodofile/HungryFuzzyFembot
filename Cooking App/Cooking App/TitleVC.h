@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "advancedVC.h"
 
+@class TitleVC;
+
 @interface TitleVC : ViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -18,7 +20,8 @@
 @property (strong, nonatomic) NSString *authorSearch;
 @property (strong, nonatomic) NSString *cookTimeSearch;
 @property (strong, nonatomic) NSString *prepTimeSearch;
-
+@property (strong, nonatomic) NSString *dietarySearch;
+@property (strong, nonatomic) NSMutableDictionary *userChoices;
 
 
 /*
@@ -28,7 +31,7 @@
 - (IBAction)textFieldReturn:(id)sender;
 
 /*
- * Dismisses the keyboard when the background is touched. 
+ * Dismisses the keyboard when the background is touched.
  */
 - (IBAction)backgroundTouched:(id)sender;
 
@@ -38,8 +41,8 @@
 - (void)dismissKeyboard;
 
 /*
-* Gets all Recipes using ingredients
-*/
+ * Gets all Recipes using ingredients
+ */
 -(void)searchRecipes;
 
 /*
