@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		220C73E21811502200A7C965 /* RecipeDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 220C73E11811502200A7C965 /* RecipeDb.sqlite */; };
-		6A0AA2E218117F7F0090547C /* CoreDataRecipeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A0AA2E118117F7F0090547C /* CoreDataRecipeTest.m */; };
 		6A0AA2E318117FA80090547C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA4E50617C85D800035694D /* CoreData.framework */; };
 		6A0F485F180ED40C004AED5F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0F485D180ED40B004AED5F /* Default.png */; };
 		6A0F4860180ED40C004AED5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0F485E180ED40C004AED5F /* Default@2x.png */; };
@@ -29,6 +28,7 @@
 		6AD91E2C17BA49EE007A0DF5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AD91E2A17BA49EE007A0DF5 /* InfoPlist.strings */; };
 		6AD99DEB17C255B1008AAA52 /* RecipeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD99DEA17C255B1008AAA52 /* RecipeVC.m */; };
 		6AD99DEE17C2599B008AAA52 /* RecipeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */; };
+		6AF922CB18122B68004CD66E /* CoreDataRecipeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF922CA18122B68004CD66E /* CoreDataRecipeTest.m */; };
 		6AFF2A52180EC07300DD3E78 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2A4F180EC07300DD3E78 /* Recipe.m */; };
 		6AFF2A53180EC07300DD3E78 /* RecipeDb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2A50180EC07300DD3E78 /* RecipeDb.xcdatamodeld */; };
 		6AFF2A56180EC08D00DD3E78 /* Nutrition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2A55180EC08D00DD3E78 /* Nutrition.m */; };
@@ -53,8 +53,6 @@
 
 /* Begin PBXFileReference section */
 		220C73E11811502200A7C965 /* RecipeDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipeDb.sqlite; sourceTree = "<group>"; };
-		6A0AA2E018117F7F0090547C /* CoreDataRecipeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataRecipeTest.h; path = "../../../HungryFuzzyFembot 2/Cooking App/Cooking AppTests/CoreDataRecipeTest.h"; sourceTree = "<group>"; };
-		6A0AA2E118117F7F0090547C /* CoreDataRecipeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataRecipeTest.m; path = "../../../HungryFuzzyFembot 2/Cooking App/Cooking AppTests/CoreDataRecipeTest.m"; sourceTree = "<group>"; };
 		6A0F485D180ED40B004AED5F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6A0F485E180ED40C004AED5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A219C4B17CC548D00E5545D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -82,6 +80,8 @@
 		6AD99DEA17C255B1008AAA52 /* RecipeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeVC.m; sourceTree = "<group>"; };
 		6AD99DEC17C2599B008AAA52 /* RecipeDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailVC.h; sourceTree = "<group>"; };
 		6AD99DED17C2599B008AAA52 /* RecipeDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailVC.m; sourceTree = "<group>"; };
+		6AF922C918122B68004CD66E /* CoreDataRecipeTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataRecipeTest.h; sourceTree = "<group>"; };
+		6AF922CA18122B68004CD66E /* CoreDataRecipeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataRecipeTest.m; sourceTree = "<group>"; };
 		6AFF2A4E180EC07300DD3E78 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
 		6AFF2A4F180EC07300DD3E78 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		6AFF2A51180EC07300DD3E78 /* RecipeDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDb.xcdatamodel; sourceTree = "<group>"; };
@@ -232,8 +232,8 @@
 		6AD91E2717BA49EE007A0DF5 /* Cooking AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				6A0AA2E018117F7F0090547C /* CoreDataRecipeTest.h */,
-				6A0AA2E118117F7F0090547C /* CoreDataRecipeTest.m */,
+				6AF922C918122B68004CD66E /* CoreDataRecipeTest.h */,
+				6AF922CA18122B68004CD66E /* CoreDataRecipeTest.m */,
 				6AD91E2817BA49EE007A0DF5 /* Supporting Files */,
 			);
 			path = "Cooking AppTests";
@@ -382,7 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A0AA2E218117F7F0090547C /* CoreDataRecipeTest.m in Sources */,
+				6AF922CB18122B68004CD66E /* CoreDataRecipeTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
