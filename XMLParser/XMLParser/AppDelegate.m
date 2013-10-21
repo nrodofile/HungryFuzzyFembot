@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // finds and loads foodnetwork.xml file
-    NSURL *pathURL = [[NSBundle mainBundle] URLForResource:@"foodnetwork_v6" withExtension:@"xml"];
+    NSURL *pathURL = [[NSBundle mainBundle] URLForResource:@"foodnetwork" withExtension:@"xml"];
     NSString *path = [pathURL path];
     NSData *data = [[NSFileManager defaultManager] contentsAtPath:path];
     

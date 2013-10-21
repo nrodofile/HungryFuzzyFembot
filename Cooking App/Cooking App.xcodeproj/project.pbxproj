@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		220C73E21811502200A7C965 /* RecipeDb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 220C73E11811502200A7C965 /* RecipeDb.sqlite */; };
 		6A0AA2E318117FA80090547C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA4E50617C85D800035694D /* CoreData.framework */; };
 		6A0F485F180ED40C004AED5F /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0F485D180ED40B004AED5F /* Default.png */; };
 		6A0F4860180ED40C004AED5F /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A0F485E180ED40C004AED5F /* Default@2x.png */; };
 		6A219C4D17CC548D00E5545D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A219C4C17CC548D00E5545D /* ViewController.m */; };
+		6A38ED571814F259009F6A24 /* foodnetwork.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6A38ED561814F259009F6A24 /* foodnetwork.xml */; };
 		6AA4E50717C85D800035694D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA4E50617C85D800035694D /* CoreData.framework */; };
 		6AC1ABC117C22230005E7AFB /* TitleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC1ABC017C22230005E7AFB /* TitleVC.m */; };
 		6AD91DFE17BA49EC007A0DF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD91DFD17BA49EC007A0DF5 /* UIKit.framework */; };
@@ -52,11 +52,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		220C73E11811502200A7C965 /* RecipeDb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RecipeDb.sqlite; sourceTree = "<group>"; };
 		6A0F485D180ED40B004AED5F /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6A0F485E180ED40C004AED5F /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6A219C4B17CC548D00E5545D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6A219C4C17CC548D00E5545D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6A38ED561814F259009F6A24 /* foodnetwork.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = foodnetwork.xml; sourceTree = "<group>"; };
 		6AA4E50617C85D800035694D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		6AC1ABBF17C22230005E7AFB /* TitleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleVC.h; sourceTree = "<group>"; };
 		6AC1ABC017C22230005E7AFB /* TitleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleVC.m; sourceTree = "<group>"; };
@@ -174,7 +174,6 @@
 				6AD91E0317BA49ED007A0DF5 /* Cooking App */,
 				6AD91E2717BA49EE007A0DF5 /* Cooking AppTests */,
 				6AD91DFC17BA49EC007A0DF5 /* Frameworks */,
-				6AD91DFB17BA49EC007A0DF5 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +184,7 @@
 				6AD91E2017BA49EE007A0DF5 /* Cooking AppTests.octest */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		6AD91DFC17BA49EC007A0DF5 /* Frameworks */ = {
@@ -202,12 +202,13 @@
 		6AD91E0317BA49ED007A0DF5 /* Cooking App */ = {
 			isa = PBXGroup;
 			children = (
-				220C73E11811502200A7C965 /* RecipeDb.sqlite */,
+				6A38ED561814F259009F6A24 /* foodnetwork.xml */,
 				6AFF2A57180EC0AF00DD3E78 /* Parser.h */,
 				6AFF2A58180EC0AF00DD3E78 /* Parser.m */,
 				6AD91E0C17BA49ED007A0DF5 /* AppDelegate.h */,
 				6AD91E0D17BA49ED007A0DF5 /* AppDelegate.m */,
 				6AD91E1517BA49ED007A0DF5 /* MainStoryboard.storyboard */,
+				6AD91DFB17BA49EC007A0DF5 /* Products */,
 				6AA4E50817C85EAE0035694D /* Model and Model Classes */,
 				6A65C04717BDE5670064BAE8 /* ViewControllers */,
 				6AD91E0417BA49ED007A0DF5 /* Supporting Files */,
@@ -321,10 +322,10 @@
 			files = (
 				6AD91E0817BA49ED007A0DF5 /* InfoPlist.strings in Resources */,
 				6AD91E1417BA49ED007A0DF5 /* Default-568h@2x.png in Resources */,
+				6A38ED571814F259009F6A24 /* foodnetwork.xml in Resources */,
 				6A0F4860180ED40C004AED5F /* Default@2x.png in Resources */,
 				6AD91E1717BA49ED007A0DF5 /* MainStoryboard.storyboard in Resources */,
 				6A0F485F180ED40C004AED5F /* Default.png in Resources */,
-				220C73E21811502200A7C965 /* RecipeDb.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

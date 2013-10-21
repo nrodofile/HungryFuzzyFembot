@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6AFF2A8B180EC18900DD3E78"
-               BuildableName = "XMLParserTests.xctest"
+               BlueprintIdentifier = "6A38ED3B1814EEC7009F6A24"
+               BuildableName = "XMLParserTests.octest"
                BlueprintName = "XMLParserTests"
                ReferencedContainer = "container:XMLParser.xcodeproj">
             </BuildableReference>
