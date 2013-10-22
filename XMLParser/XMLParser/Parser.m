@@ -44,7 +44,7 @@
 
     }
     else if ([elementName isEqualToString:@"methodstep"]) {
-       method =[NSEntityDescription insertNewObjectForEntityForName:@"Method" inManagedObjectContext:context];
+        Method = [NSEntityDescription insertNewObjectForEntityForName:@"Method" inManagedObjectContext:context];
     }
     else if ([elementName isEqualToString:@"nutrition"]) {
         nutrition =[NSEntityDescription insertNewObjectForEntityForName:@"Nutrition" inManagedObjectContext:context];
@@ -145,7 +145,7 @@
         
     }
     else if ([elementName isEqualToString:@"methodstep"]){
-        [recipe addAMethod:method];
+        [recipe addAMethod:Method];
         currentElementValue = nil;
     }
     else if ([elementName isEqualToString:@"method"]) {

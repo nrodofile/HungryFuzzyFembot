@@ -33,12 +33,6 @@
     rating.text = [NSString stringWithFormat:@"Rating: %@/5", recipe.rating];
     yield.text = [NSString stringWithFormat:@"Servings: %@", recipe.yield];
     author.text = [NSString stringWithFormat:@"By %@", recipe.name];
-    
-    for (Nutrition *nutrition in recipe.nutrition)
-        NSLog(@"%@", nutrition.label);
-    
-    for (IngredientTags *tag in recipe.ingredienttags)
-        NSLog(@"%@", tag.baseingredient);
 }
 
 - (void)didReceiveMemoryWarning {

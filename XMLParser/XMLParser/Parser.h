@@ -20,7 +20,7 @@
     NSManagedObjectContext *context;
     Recipe *recipe;
     Ingredient *ingredient;
-    Method *method;
+//    Method *method;
     IngredientTags *tag;
     Nutrition *nutrition;
     NSInteger depth;

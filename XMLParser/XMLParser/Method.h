@@ -1,6 +1,6 @@
 //
-//  Nutrition.h
-//  Cooking App
+//  Method.h
+//  XMLParser
 //
 //  Created by Stuart Stirling on 22/10/13.
 //  Copyright (c) 2013 Tristan. All rights reserved.
@@ -11,10 +11,10 @@
 
 @class Recipe;
 
-@interface Nutrition : NSManagedObject
+@interface Method : NSManagedObject
 
-@property (nonatomic, retain) NSString * label;
-@property (nonatomic, retain) NSString * nutritionid;
+@property (nonatomic, retain) NSNumber * order;
+@property (nonatomic, retain) NSString * step;
 @property (nonatomic, retain) Recipe *recipe;
 
 @end

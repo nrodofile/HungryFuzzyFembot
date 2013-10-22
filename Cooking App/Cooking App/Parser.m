@@ -21,8 +21,6 @@
         
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         context = appDelegate.managedObjectContext;
-        
-        
     }
     
     return self;
@@ -31,23 +29,23 @@
 // Did parser connection recieve data, create an array
 -(void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
     
-    // When Depth is equal to 1, it refers to the ingredient label
-    // Any other value and it refers to the nutrition label
-    depth = 0;
     
     if ([elementName isEqualToString:@"recipe"]) {
         recipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
     }
     else if ([elementName isEqualToString:@"ingredient"]) {
         ingredient =[NSEntityDescription insertNewObjectForEntityForName:@"Ingredient" inManagedObjectContext:context];
-        depth++;
+        
+        currentTag = elementName;
 
     }
     else if ([elementName isEqualToString:@"methodstep"]) {
        method =[NSEntityDescription insertNewObjectForEntityForName:@"Method" inManagedObjectContext:context];
     }
-    else if ([elementName isEqualToString:@"nutrition"]) {
+    else if ([elementName isEqualToString:@"type"]) {
         nutrition =[NSEntityDescription insertNewObjectForEntityForName:@"Nutrition" inManagedObjectContext:context];
+        
+        currentTag = elementName;
     }
     else if ([elementName isEqualToString:@"tag"]) {
         tag =[NSEntityDescription insertNewObjectForEntityForName:@"Ingredienttags" inManagedObjectContext:context];
@@ -70,7 +68,7 @@
 
 //Do stuff
 -(void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    
+
     if ([elementName isEqualToString:@"foodnetwork"]) {
         return;
     }
@@ -85,17 +83,19 @@
     else if ([elementName isEqualToString:@"author"]) {
         currentElementValue = nil;
     }
-    else if ([elementName isEqualToString:@"nutrition"]){
-        [recipe addNutritionObject:nutrition];
-        currentElementValue = nil;
-    }
     else if ([elementName isEqualToString:@"ingredient"]){
         [recipe addIngredient:ingredient];
         currentElementValue = nil;
-        depth--;
+        ingredient = nil;
+        
+        
+    }
+    else if ([elementName isEqualToString:@"nutrition"]){
+
+        currentElementValue = nil;
 
     }
-    
+
     else if ([elementName isEqualToString:@"number"]) {
         NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -106,16 +106,13 @@
 
     }
     else if ([elementName isEqualToString:@"label"]) {
-        if (depth == 1) {
-            
+        if ([currentTag isEqualToString:@"ingredient"])
             [ingredient setValue:currentElementValue forKey:elementName];
-        }
-        else {
+        else if ([currentTag isEqualToString:@"type"])
             [nutrition setValue:currentElementValue forKey:elementName];
-        }
     }
     else if ([elementName isEqualToString:@"ingredients"]) {
-    currentElementValue = nil;
+        currentElementValue = nil;
     }
 
     else if ([elementName isEqualToString:@"order"]){
@@ -124,6 +121,7 @@
         NSNumber * myNumber = [f numberFromString:currentElementValue];
         
         [method setValue:myNumber forKey:elementName];
+        currentElementValue = nil;
 
     }
     else if ([elementName isEqualToString:@"step"]) {
@@ -132,6 +130,7 @@
     }
     else if ([elementName isEqualToString:@"methodstep"]){
         [recipe addAMethod:method];
+        method = nil;
         currentElementValue = nil;
     }
     else if ([elementName isEqualToString:@"method"]) {
@@ -140,16 +139,22 @@
     
     else if ([elementName isEqualToString:@"nutritionid"]) {
         [nutrition setValue:currentElementValue forKey:elementName];
+        currentElementValue = nil;
         
     }
     else if ([elementName isEqualToString:@"type"]) {
-       currentElementValue = nil;
+        [recipe addNutritionObject:nutrition];
+        nutrition = nil;
+        
+        currentElementValue = nil;
     }
     else if ([elementName isEqualToString:@"ingredienttags"]) {
         currentElementValue = nil;
     }
     else if ([elementName isEqualToString:@"tag"]) {
         [recipe addIngredienttagsObject:tag];
+        tag = nil;
+        currentElementValue = nil;
     }
 
     else if ([elementName isEqualToString:@"tagid"]) {
@@ -163,6 +168,8 @@
     }
     else if ([elementName isEqualToString:@"baseingredient"]) {
         [tag setValue:currentElementValue forKey:elementName];
+        currentElementValue = nil;
+        
     }
     else {
         [recipe setValue:currentElementValue forKey:elementName];

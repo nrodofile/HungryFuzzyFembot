@@ -1,6 +1,6 @@
 //
 //  Recipe.h
-//  Cooking App
+//  XMLParser
 //
 //  Created by Stuart Stirling on 22/10/13.
 //  Copyright (c) 2013 Tristan. All rights reserved.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Ingredient, IngredientTags, Method, Nutrition;
+@class Ingredient, IngredientTags, Nutrition;
 
 @interface Recipe : NSManagedObject
 
@@ -48,14 +48,14 @@
 - (void)addIngredienttags:(NSSet *)values;
 - (void)removeIngredienttags:(NSSet *)values;
 
-- (void)insertObject:(Method *)value inMethodAtIndex:(NSUInteger)idx;
+//- (void)insertObject:(Method *)value inMethodAtIndex:(NSUInteger)idx;
 - (void)removeObjectFromMethodAtIndex:(NSUInteger)idx;
 - (void)insertMethod:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
 - (void)removeMethodAtIndexes:(NSIndexSet *)indexes;
-- (void)replaceObjectInMethodAtIndex:(NSUInteger)idx withObject:(Method *)value;
+//- (void)replaceObjectInMethodAtIndex:(NSUInteger)idx withObject:(Method *)value;
 - (void)replaceMethodAtIndexes:(NSIndexSet *)indexes withMethod:(NSArray *)values;
-- (void)addMethodObject:(Method *)value;
-- (void)removeMethodObject:(Method *)value;
+//- (void)addMethodObject:(Method *)value;
+//- (void)removeMethodObject:(Method *)value;
 - (void)addMethod:(NSOrderedSet *)values;
 - (void)removeMethod:(NSOrderedSet *)values;
 - (void)addNutritionObject:(Nutrition *)value;
@@ -64,5 +64,6 @@
 - (void)removeNutrition:(NSSet *)values;
 
 -(void)addIngredient: (Ingredient *) values;
--(void)addAMethod: (Method *) values;
+//-(void)addAMethod: (Method *) values;
+
 @end

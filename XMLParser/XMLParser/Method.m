@@ -1,19 +1,19 @@
 //
-//  Ingredient.m
-//  Cooking App
+//  Method.m
+//  XMLParser
 //
 //  Created by Stuart Stirling on 22/10/13.
 //  Copyright (c) 2013 Tristan. All rights reserved.
 //
 
-#import "Ingredient.h"
+#import "Method.h"
 #import "Recipe.h"
 
 
-@implementation Ingredient
+@implementation Method
 
-@dynamic label;
-@dynamic number;
+@dynamic order;
+@dynamic step;
 @dynamic recipe;
 
 @end

@@ -1,6 +1,6 @@
 //
 //  Recipe.m
-//  Cooking App
+//  XMLParser
 //
 //  Created by Stuart Stirling on 22/10/13.
 //  Copyright (c) 2013 Tristan. All rights reserved.
@@ -32,6 +32,7 @@
 @dynamic method;
 @dynamic nutrition;
 
+
 -(void)addIngredient:(Ingredient *)values {
     NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.ingredients];
     [tempSet addObject:values];
@@ -41,7 +42,7 @@
 -(void)addAMethod:(Method *)values {
     NSMutableOrderedSet* tempSet = [NSMutableOrderedSet orderedSetWithOrderedSet:self.method];
     [tempSet addObject:values];
-    self.method = tempSet;
+   self.method = tempSet;
 }
 
 @end

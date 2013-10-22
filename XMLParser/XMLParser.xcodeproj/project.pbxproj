@@ -24,11 +24,11 @@
 		6AFF2A7C180EC18900DD3E78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AFF2A7A180EC18900DD3E78 /* Main.storyboard */; };
 		6AFF2AB0180EC24500DD3E78 /* Ingredient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2AA5180EC24500DD3E78 /* Ingredient.m */; };
 		6AFF2AB1180EC24500DD3E78 /* IngredientTags.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2AA7180EC24500DD3E78 /* IngredientTags.m */; };
-		6AFF2AB2180EC24500DD3E78 /* Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2AA9180EC24500DD3E78 /* Method.m */; };
 		6AFF2AB3180EC24500DD3E78 /* Nutrition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2AAB180EC24500DD3E78 /* Nutrition.m */; };
-		6AFF2AB4180EC24500DD3E78 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2AAD180EC24500DD3E78 /* Recipe.m */; };
 		6AFF2AB5180EC24500DD3E78 /* RecipeDb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2AAE180EC24500DD3E78 /* RecipeDb.xcdatamodeld */; };
 		6AFF2AB8180EC26E00DD3E78 /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF2AB7180EC26E00DD3E78 /* Parser.m */; };
+		7F3733E91815EEA200BBB6A7 /* Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3733E81815EEA200BBB6A7 /* Method.m */; };
+		7F3733EC1815EEA300BBB6A7 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3733EB1815EEA300BBB6A7 /* Recipe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,15 +69,15 @@
 		6AFF2AA5180EC24500DD3E78 /* Ingredient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ingredient.m; path = "../../Cooking App/Cooking App/Ingredient.m"; sourceTree = "<group>"; };
 		6AFF2AA6180EC24500DD3E78 /* IngredientTags.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IngredientTags.h; path = "../../Cooking App/Cooking App/IngredientTags.h"; sourceTree = "<group>"; };
 		6AFF2AA7180EC24500DD3E78 /* IngredientTags.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IngredientTags.m; path = "../../Cooking App/Cooking App/IngredientTags.m"; sourceTree = "<group>"; };
-		6AFF2AA8180EC24500DD3E78 /* Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Method.h; path = "../../Cooking App/Cooking App/Method.h"; sourceTree = "<group>"; };
-		6AFF2AA9180EC24500DD3E78 /* Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Method.m; path = "../../Cooking App/Cooking App/Method.m"; sourceTree = "<group>"; };
 		6AFF2AAA180EC24500DD3E78 /* Nutrition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Nutrition.h; path = "../../Cooking App/Cooking App/Nutrition.h"; sourceTree = "<group>"; };
 		6AFF2AAB180EC24500DD3E78 /* Nutrition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Nutrition.m; path = "../../Cooking App/Cooking App/Nutrition.m"; sourceTree = "<group>"; };
-		6AFF2AAC180EC24500DD3E78 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Recipe.h; path = "../../Cooking App/Cooking App/Recipe.h"; sourceTree = "<group>"; };
-		6AFF2AAD180EC24500DD3E78 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Recipe.m; path = "../../Cooking App/Cooking App/Recipe.m"; sourceTree = "<group>"; };
 		6AFF2AAF180EC24500DD3E78 /* RecipeDb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeDb.xcdatamodel; sourceTree = "<group>"; };
 		6AFF2AB6180EC26E00DD3E78 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		6AFF2AB7180EC26E00DD3E78 /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		7F3733E71815EEA200BBB6A7 /* Method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Method.h; sourceTree = "<group>"; };
+		7F3733E81815EEA200BBB6A7 /* Method.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Method.m; sourceTree = "<group>"; };
+		7F3733EA1815EEA300BBB6A7 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		7F3733EB1815EEA300BBB6A7 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,13 +193,13 @@
 				6AFF2AA5180EC24500DD3E78 /* Ingredient.m */,
 				6AFF2AA6180EC24500DD3E78 /* IngredientTags.h */,
 				6AFF2AA7180EC24500DD3E78 /* IngredientTags.m */,
-				6AFF2AA8180EC24500DD3E78 /* Method.h */,
-				6AFF2AA9180EC24500DD3E78 /* Method.m */,
 				6AFF2AAA180EC24500DD3E78 /* Nutrition.h */,
 				6AFF2AAB180EC24500DD3E78 /* Nutrition.m */,
-				6AFF2AAC180EC24500DD3E78 /* Recipe.h */,
-				6AFF2AAD180EC24500DD3E78 /* Recipe.m */,
 				6AFF2AAE180EC24500DD3E78 /* RecipeDb.xcdatamodeld */,
+				7F3733EA1815EEA300BBB6A7 /* Recipe.h */,
+				7F3733EB1815EEA300BBB6A7 /* Recipe.m */,
+				7F3733E71815EEA200BBB6A7 /* Method.h */,
+				7F3733E81815EEA200BBB6A7 /* Method.m */,
 			);
 			name = "Core Data Model";
 			sourceTree = "<group>";
@@ -309,11 +309,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F3733EC1815EEA300BBB6A7 /* Recipe.m in Sources */,
 				6AFF2A79180EC18900DD3E78 /* AppDelegate.m in Sources */,
-				6AFF2AB4180EC24500DD3E78 /* Recipe.m in Sources */,
+				7F3733E91815EEA200BBB6A7 /* Method.m in Sources */,
 				6AFF2AB0180EC24500DD3E78 /* Ingredient.m in Sources */,
 				6AFF2AB5180EC24500DD3E78 /* RecipeDb.xcdatamodeld in Sources */,
-				6AFF2AB2180EC24500DD3E78 /* Method.m in Sources */,
 				6AFF2A75180EC18900DD3E78 /* main.m in Sources */,
 				6AFF2AB3180EC24500DD3E78 /* Nutrition.m in Sources */,
 				6AFF2AB8180EC26E00DD3E78 /* Parser.m in Sources */,
@@ -513,6 +513,7 @@
 				6A38ED4E1814EEC7009F6A24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6AFF2A5E180EC18900DD3E78 /* Build configuration list for PBXProject "XMLParser" */ = {
 			isa = XCConfigurationList;

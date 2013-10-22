@@ -25,6 +25,7 @@
     Nutrition *nutrition;
     NSInteger depth;
     
+    NSString *currentTag;
     
     NSMutableString *currentElementValue;
     
